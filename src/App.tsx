@@ -1,15 +1,13 @@
 import './App.css'
-import CardStartGroup from "./components/CardStartGroup.tsx";
+import CardList from "./components/CardList.tsx";
 
 
 
 function App() {
   return (
-    <>
-      <div className="container">
-          <CardStartGroup />
-      </div>
-    </>
+    <div className="all_cards_container">
+      <CardList/>
+    </div>
   )
 }
 

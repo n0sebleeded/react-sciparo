@@ -1,22 +1,6 @@
-.card {
-    margin: 10px;
-    height: 12em;
-    width: 8em;
+.all_cards_container {
     display: flex;
-    background-color: white;
-}
-
-.card_text {
-    font-size: 10pt;
-    width: 100%;
-    text-align: center;
-    top: 6em;
-}
-
-.container {
-    display: flex;
-    width: 100vw;
+    flex-direction: column;
     height: 100vh;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
 }
