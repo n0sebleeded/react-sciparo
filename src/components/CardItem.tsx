@@ -1,7 +1,9 @@
-import {ICard, ICords} from "../specs/interfaces.tsx";
+import { ICard, ICords } from "../specs/interfaces.tsx";
 import './componentsStyles/card.css'
-import {useEffect, useRef, useState} from "react";
-import {motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useDispatch, useSelector } from 'react-redux';
+import { resetSelectedCard, setSelectedCard } from "../redux/actions.ts";
 
 function CardItem({id, Text, Hidden}:ICard) {
     const [isHovered, setHovered] = useState(false);
@@ -10,13 +12,24 @@ function CardItem({id, Text, Hidden}:ICard) {
         x: 0,
         y: 0
     });
-
     const centerCoords:ICords = {
         x: window.innerWidth / 2,
         y: window.innerHeight / 2,
     };
-    console.log(centerCoords)
+    const dispatch = useDispatch();
+    const selectedCard = useSelector((state: any) => state.card.selectedCard);
+
+    const handleClick = () => {
+        if (selectedCard === null) {
+            dispatch(setSelectedCard(id));
+            setClicked(true);
+        } else if (selectedCard === id) {
+            dispatch(resetSelectedCard());
+            setClicked(false);
+        }
+    };
     const ref = useRef<HTMLDivElement | null>(null);
+
 
     useEffect(() => {
         if (ref.current) {
@@ -25,7 +38,6 @@ function CardItem({id, Text, Hidden}:ICard) {
                 x: rect.left + (rect.right - rect.left) / 2 - rect.width,
                 y: rect.bottom + (rect.top - rect.bottom) / 2
             }
-            console.log(rect)
             setCardCords(cords);
         }
     }, [ref]);
@@ -37,7 +49,7 @@ function CardItem({id, Text, Hidden}:ICard) {
             drag={!Hidden}
             animate={{
                 x: isClicked && !Hidden ? centerCoords.x - cardCords.x : 0,
-                y: isClicked && !Hidden ? centerCoords.y - cardCords.y : 0,
+                y: isClicked && !Hidden ? centerCoords.y - cardCords.y : isHovered && !Hidden ? "-40px" : 0,
             }}
             transition={{type:"spring", duration: 0.05}}
             dragConstraints={{
@@ -47,12 +59,9 @@ function CardItem({id, Text, Hidden}:ICard) {
                 right: 0,
             }}
             key={id}
-            onClick={() => setClicked((prevState) => !prevState)}
+            onClick={handleClick}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            style={{
-                transform: isHovered && !Hidden ? "translateY(-40px)" : "none",
-            }}
         >
             {!Hidden && <p>{Text}</p>}
             <p className="card_text">{id}</p>

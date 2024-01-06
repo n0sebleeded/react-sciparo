@@ -3,7 +3,7 @@ import './componentsStyles/сardList.css'
 import {ICard} from "../specs/interfaces.tsx";
 
 function CardList() {
-    const playerCards:ICard[] = [
+    const playerCards: ICard[] = [
         { id: 1, Text: "Paper", Hidden: false },
         { id: 2, Text: "Paper", Hidden: false },
         { id: 3, Text: "Rock", Hidden: false },
@@ -12,7 +12,7 @@ function CardList() {
         { id: 6, Text: "Scissor", Hidden: false },
     ];
 
-    const enemyCards:ICard[] = [
+    const enemyCards: ICard[] = [
         { id: 7, Text: "Paper", Hidden: true },
         { id: 8, Text: "Paper", Hidden: true },
         { id: 9, Text: "Rock", Hidden: true },
