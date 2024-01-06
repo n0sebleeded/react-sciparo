@@ -42,6 +42,10 @@ function CardItem({id, Text, Hidden}:ICard) {
         }
     }, [ref]);
 
+    const customStyle = {
+        cursor: !Hidden ? 'pointer' : 'default',
+    };
+
     return (
         <motion.div
             ref={ref}
@@ -59,9 +63,11 @@ function CardItem({id, Text, Hidden}:ICard) {
                 right: 0,
             }}
             key={id}
-            onClick={handleClick}
+
+            onClick={!Hidden ? handleClick : undefined}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
+            style={customStyle}
         >
             {!Hidden && <p>{Text}</p>}
             <p className="card_text">{id}</p>
