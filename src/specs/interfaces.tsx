@@ -13,3 +13,8 @@ export interface ICard {
     Text: string,
     Hidden: boolean
 }
+
+export interface ICords {
+    x:number,
+    y:number
+}

@@ -15,8 +15,19 @@
     display: flex;
     background-color: white;
     transition: transform 0.3s ease;
-    transform: translateY(-20px);
+    transform: translateY(-40px);
 }
+/*
+.picked_card {
+    margin: 10px;
+    height: 12em;
+    width: 8em;
+    display: flex;
+    background-color: white;
+    transition: transform 0.5s ease;
+    transform: translateY(-150%);
+}
+*/
 
 .card_text {
     font-size: 10pt;
