@@ -11,10 +11,17 @@ export interface ICardGroup {
 export interface ICard {
     id: number,
     Text: string,
-    Hidden: boolean
+    Hidden: boolean,
+    Type:ICardType
 }
 
 export interface ICords {
     x:number,
     y:number
+}
+
+export enum ICardType {
+    CARD_PAPER = "CARD_PAPER",
+    CARD_SCISSOR = "CARD_SCISSOR",
+    CARD_ROCK = "CARD_ROCK"
 }

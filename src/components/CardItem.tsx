@@ -1,11 +1,11 @@
-import { ICard, ICords } from "../specs/interfaces.tsx";
+import {ICard, ICardType, ICords} from "../specs/interfaces.tsx";
 import './componentsStyles/card.css'
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { useDispatch, useSelector } from 'react-redux';
-import { resetSelectedCard, setSelectedCard } from "../redux/actions.ts";
+import {useEffect, useRef, useState} from "react";
+import {motion} from "framer-motion";
+import {useDispatch, useSelector} from 'react-redux';
+import {resetSelectedCard, setSelectedCard} from "../redux/actions.ts";
 
-function CardItem({id, Text, Hidden}:ICard) {
+function CardItem({id, Text, Hidden, Type}:ICard) {
     const [isHovered, setHovered] = useState(false);
     const [isClicked, setClicked] = useState(false);
     const [cardCords, setCardCords] = useState<ICords>({
@@ -69,8 +69,20 @@ function CardItem({id, Text, Hidden}:ICard) {
             onMouseLeave={() => setHovered(false)}
             style={customStyle}
         >
-            {!Hidden && <p>{Text}</p>}
-            <p className="card_text">{id}</p>
+            {!Hidden && (
+                <div className="card_item">
+                    {Type === ICardType.CARD_SCISSOR &&
+                        <img className="pic" src="../../src/assets/scissors.svg" alt="scissor"/>
+                    }
+                    {Type === ICardType.CARD_ROCK &&
+                        <img className="pic" src="../../src/assets/rock.svg" alt="rock"/>
+                    }
+                    {Type === ICardType.CARD_PAPER &&
+                        <img className="pic" src="../../src/assets/paper.svg" alt="paper"/>
+                    }
+                    <p className="card_text">{Text}</p>
+                </div>
+            )}
         </motion.div>
     );
 }

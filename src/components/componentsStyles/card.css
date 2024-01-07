@@ -3,9 +3,16 @@
     height: 12em;
     width: 8em;
     display: flex;
-    background-color: white;
-    transform: translateY(0px);
+    background-color: #FFEA00;
     transition: transform 0.3s ease;
+    border-radius: 20px;
+    border: #a19405 inset 5px;
+    transform: scale(0);
+}
+
+.pic {
+    width: 8em;
+    pointer-events: none;
 }
 
 .card_on_hover {
@@ -30,8 +37,15 @@
 */
 
 .card_text {
-    font-size: 10pt;
+    font-size: 12pt;
     width: 100%;
     text-align: center;
     top: 6em;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.card_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
