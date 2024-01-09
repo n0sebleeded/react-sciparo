@@ -36,8 +36,9 @@ function CardItem({id, Text, Hidden, Type}:ICard) {
             const rect = ref.current.getBoundingClientRect();
             const cords:ICords = {
                 x: rect.left + (rect.right - rect.left) / 2 - rect.width,
-                y: rect.bottom + (rect.top - rect.bottom) / 2
+                y: rect.bottom < 1 ? 1 : rect.bottom + (rect.top - rect.bottom) / 2
             }
+            console.log(rect.bottom);
             setCardCords(cords);
         }
     }, [ref]);
@@ -58,7 +59,7 @@ function CardItem({id, Text, Hidden, Type}:ICard) {
             transition={{type:"spring", duration: 0.05}}
             dragConstraints={{
                 top:0,
-                bottom:0,
+                bottom: -cardCords.y / 12,
                 left: 0,
                 right: 0,
             }}
