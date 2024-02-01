@@ -14,7 +14,7 @@
     width: 8em;
     pointer-events: none;
 }
-
+/*
 .card_on_hover {
     margin: 10px;
     height: 12em;
@@ -24,6 +24,8 @@
     transition: transform 0.3s ease;
     transform: translateY(-40px);
 }
+
+ */
 /*
 .picked_card {
     margin: 10px;

@@ -1,91 +1,98 @@
-import {ICard, ICardType, ICords} from "../specs/interfaces.tsx";
-import './componentsStyles/card.css'
-import {useEffect, useRef, useState} from "react";
-import {motion} from "framer-motion";
-import {useDispatch, useSelector} from 'react-redux';
-import {resetSelectedCard, setSelectedCard} from "../redux/actions.ts";
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useDispatch, useSelector } from 'react-redux';
+import { resetSelectedCard, setSelectedCard } from "../redux/actions.ts";
+import { ICard, ICardType, ICords } from "../specs/interfaces.tsx";
+import './componentsStyles/card.css';
 
-function CardItem({id, Text, Hidden, Type}:ICard) {
-    const [isHovered, setHovered] = useState(false);
-    const [isClicked, setClicked] = useState(false);
-    const [cardCords, setCardCords] = useState<ICords>({
-        x: 0,
-        y: 0
+//FIXME: mouse cursor:pointer
+const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
+    const [cardState, setCardState] = useState({
+        isAnimating: false,
+        isHovering: false,
+        cardCords: { x: 0, y: 0 },
     });
-    const centerCoords:ICords = {
+
+    const centerCoords = {
         x: window.innerWidth / 2,
         y: window.innerHeight / 2,
     };
+
+    const getCardCords = (element: HTMLDivElement | null): ICords => {
+        const rect = element?.getBoundingClientRect();
+        return {
+            x: rect ? rect.left + (rect.right - rect.left) / 2 - rect.width : 0,
+            y: rect ? (rect.bottom < 1 ? 1 : rect.bottom + (rect.top - rect.bottom) / 2) : 0,
+        };
+    };
+
+    const renderCardImage = (type: ICardType): React.ReactNode => (
+        <img className="pic"
+             src={`../../src/assets/${type.toLowerCase()}.svg`}
+             alt={type.toLowerCase()} />
+    );
     const dispatch = useDispatch();
     const selectedCard = useSelector((state: any) => state.card.selectedCard);
+
+    const isClicked = selectedCard === id;
 
     const handleClick = () => {
         if (selectedCard === null) {
             dispatch(setSelectedCard(id));
-            setClicked(true);
-        } else if (selectedCard === id) {
+        } else if (isClicked) {
             dispatch(resetSelectedCard());
-            setClicked(false);
+            setCardState(prevState => ({ ...prevState, isHovering: false }));
         }
     };
+
     const ref = useRef<HTMLDivElement | null>(null);
 
-
     useEffect(() => {
-        if (ref.current) {
-            const rect = ref.current.getBoundingClientRect();
-            const cords:ICords = {
-                x: rect.left + (rect.right - rect.left) / 2 - rect.width,
-                y: rect.bottom < 1 ? 1 : rect.bottom + (rect.top - rect.bottom) / 2
-            }
-            console.log(rect.bottom);
-            setCardCords(cords);
-        }
+        setCardState(prevState => ({ ...prevState, cardCords: getCardCords(ref.current) }));
     }, [ref]);
 
-    const customStyle = {
-        cursor: !Hidden ? 'pointer' : 'default',
+    useEffect(() => {
+        if (isClicked || Hidden) return;
+
+        setCardState(prevState => ({ ...prevState, isAnimating: true }));
+        const animationTimeout = setTimeout(() =>
+            setCardState(prevState => ({ ...prevState, isAnimating: false })),
+            500);
+
+        return () => clearTimeout(animationTimeout);
+    }, [isClicked, Hidden]);
+
+    const cardStyle = {
+        transform: cardState.isAnimating ? 'none' : '',
     };
 
     return (
         <motion.div
             ref={ref}
             className="card"
-            drag={!Hidden}
+            drag={!Hidden && !isClicked}
             animate={{
-                x: isClicked && !Hidden ? centerCoords.x - cardCords.x : 0,
-                y: isClicked && !Hidden ? centerCoords.y - cardCords.y : isHovered && !Hidden ? "-40px" : 0,
+                x: isClicked && !Hidden ? centerCoords.x - cardState.cardCords.x : 0,
+                y: isClicked && !Hidden ? centerCoords.y - cardState.cardCords.y : cardState.isHovering && !Hidden ? "-40px" : 0,
             }}
-            transition={{type:"spring", duration: 0.05}}
-            dragConstraints={{
-                top:0,
-                bottom: -cardCords.y / 12,
-                left: 0,
-                right: 0,
-            }}
+            transition={{ type: "spring", duration: 0.05 }}
+            dragConstraints={{ top: 0, bottom: 0, left: 0, right: 0 }}
             key={id}
-
             onClick={!Hidden ? handleClick : undefined}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            style={customStyle}
+            onMouseEnter={() => setCardState(prevState =>
+                ({ ...prevState, isHovering: true }))}
+            onMouseLeave={() => setCardState(prevState =>
+                ({ ...prevState, isHovering: false }))}
+            style={cardStyle}
         >
             {!Hidden && (
                 <div className="card_item">
-                    {Type === ICardType.CARD_SCISSOR &&
-                        <img className="pic" src="../../src/assets/scissors.svg" alt="scissor"/>
-                    }
-                    {Type === ICardType.CARD_ROCK &&
-                        <img className="pic" src="../../src/assets/rock.svg" alt="rock"/>
-                    }
-                    {Type === ICardType.CARD_PAPER &&
-                        <img className="pic" src="../../src/assets/paper.svg" alt="paper"/>
-                    }
+                    {renderCardImage(Type)}
                     <p className="card_text">{Text}</p>
                 </div>
             )}
         </motion.div>
     );
-}
+};
 
 export default CardItem;
