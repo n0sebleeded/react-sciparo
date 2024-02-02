@@ -1,0 +1,77 @@
+.login-container {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    color: #ffd500;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    mask-image: url("/src/assets/card_scissor.svg"); /* Используем картинку для маски */
+    mask-size: auto;
+    mask-repeat: no-repeat;
+    -webkit-mask-position-x: center;
+    -webkit-mask-position-y: center;
+}
+
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/src/assets/card_scissor.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.login-box {
+    clip-path: url("/src/assets/card_scissor.svg");
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    z-index: 2;
+    filter: drop-shadow(2px 4px 6px black);
+    filter: saturate(0.5);
+}
+
+.welcome {
+    padding: 2rem 1rem;
+    font-size: 18pt;
+}
+
+.login-field, .password-field, .email-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin: 3rem 1rem;
+    font-size: 16pt;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    color: #c2a300;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.inp-format {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.inp-format-rev {
+    width: 75%;
+    padding-left: 10px;
+    padding-right: 40px;
+}

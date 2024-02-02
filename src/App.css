@@ -7,3 +7,19 @@ a {
 a:hover {
     color: #FFEA00;
 }
+
+input {
+    color: white;
+    font-size: 14pt;
+    font-family: 'Montserrat', sans-serif;
+    background: #2f2f2f;
+    text-decoration: none;
+    text-underline: none;
+    border: none;
+    height: 2em;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+}

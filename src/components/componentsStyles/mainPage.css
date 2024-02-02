@@ -67,6 +67,11 @@
 .main-img {
     height: 8em;
     filter: hue-rotate(-10deg);
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .main-img-container {
