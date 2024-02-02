@@ -6,7 +6,7 @@
     background-color: #FFEA00;
     transition: transform 0.3s ease;
     border-radius: 20px;
-    border: #a19405 inset 5px;
+    border: #ffd500 inset 4px;
     transform: scale(0);
     -moz-user-select: -moz-none;
     -o-user-select: none;
@@ -48,7 +48,8 @@
     width: 100%;
     text-align: center;
     top: 6em;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 
 .card_item {

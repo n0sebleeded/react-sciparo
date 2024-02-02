@@ -1,36 +1,31 @@
 import './componentsStyles/mainPage.css';
-import {ICard, ICardType} from "../specs/interfaces.tsx";
-import CardItem from "./CardItem.tsx";
 
 const MainPage = () => {
-    const cards: ICard[] = [
-        { id: 12, Text: "Paper", Hidden: false, Type: ICardType.CARD_PAPER },
-        { id: 22, Text: "Rock", Hidden: false, Type: ICardType.CARD_ROCK },
-        { id: 32, Text: "Scissor", Hidden: false, Type: ICardType.CARD_SCISSOR },
-    ];
     //TODO: will be redesign
     return (
-        <>
-            <div className="navbar">
-                <a href="#">Used technologies</a>
-                <a href="#">What's idea?</a>
-                <a href="#">About us</a>
-                <a href="#">Login/register</a>
-            </div>
-            <div className="main-container">
-                <div className="sub-container">
-                    <div className="leftside-container">
-                        <h1 className="main-text">ROCK-PAPER-SCISSOR</h1>
-                        <p className="sub-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ligula libero, semper sed turpis in, aliquam consequat odio. Ut ullamcorper mauris ex, ac tincidunt elit euismod a</p>
+        <div className="main-container">
+            <div className="sub-container">
+                <div className="leftside-container">
+                    <h1 className="main-text">
+                        <span className="rock">ROCK-</span><br/>
+                        <span className="paper">PAPER-</span><br/>
+                        <span className="scissor">SCISSOR</span>
+                    </h1>
+                </div>
+                <div className="rightside-container">
+                    <div className="main-img-container">
+                        <img className="main-img" src="../../src/assets/card_rock.svg" alt="rock"/>
+                        <img className="main-img" src="../../src/assets/card_paper.svg" alt="paper"/>
+                        <img className="main-img" src="../../src/assets/card_scissor.svg" alt="scissor"/>
                     </div>
-                    <div className="rightside-container">
-                        {cards.map((card) => (
-                            <CardItem id={card.id} Text={card.Text} Hidden={card.Hidden} Type={card.Type} />
-                        ))}
-                    </div>
+                    <p className="sub-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ligula libero,
+                        semper sed turpis in, <span className="highlighted-text">aliquam consequat odio</span>. Ut ullamcorper mauris ex, ac tincidunt elit
+                        euismod
+                        a
+                    </p>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

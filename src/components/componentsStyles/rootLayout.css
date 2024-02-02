@@ -1,0 +1,46 @@
+.outlet-container {
+    height: 95vh;
+    margin: 0 auto;
+}
+
+{/*
+    TODO:navbar also will be redesign
+*/}
+.navbar {
+    display: flex;
+    color: honeydew;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    align-items: center;
+    background-color: #1a1a1a;
+    height: 5vh;
+}
+
+.navbar-item-set {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar-item {
+    margin: 0 20px;
+}
+
+.logo-img {
+    height: 2em;
+    margin-top: 0.5em;
+}
+
+.logo-img-container {
+    filter: grayscale(1);
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.5s;
+}
+
+.logo-img-container:hover {
+    filter: grayscale(0);
+    transform: scale(1.2);
+}
