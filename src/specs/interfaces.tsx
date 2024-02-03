@@ -8,6 +8,8 @@ export interface ICardGroup {
     PlayerSide: boolean,
 }*/
 
+import {ReactNode} from "react";
+
 export interface ICard {
     id: number,
     Text: string,
@@ -18,6 +20,10 @@ export interface ICard {
 export interface ICords {
     x:number,
     y:number
+}
+
+export interface IProps {
+    children: ReactNode;
 }
 
 export interface IFormData {

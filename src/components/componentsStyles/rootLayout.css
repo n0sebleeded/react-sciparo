@@ -1,6 +1,7 @@
 .outlet-container {
     height: 95vh;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 {/*

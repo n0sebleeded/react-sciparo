@@ -16,7 +16,7 @@ const RootLayout = () => {
                 </div>
                 <div className="navbar-item-set">
                     <a className="navbar-item" href="#">Used technologies</a>
-                    <a className="navbar-item" href="#">What's idea?</a>
+                    <a className="navbar-item" href="#">What's idea?&#129300;</a>
                 </div>
                 <div className="navbar-item-set">
                     <a className="navbar-item" href="#">About us</a>
