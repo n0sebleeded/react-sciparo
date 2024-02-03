@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import '../components/componentsStyles/rootLayout.css';
 
 const RootLayout = () => {
@@ -6,11 +6,13 @@ const RootLayout = () => {
         <>
             <div className="navbar">
                 <div className="navbar-item-set">
-                    <div className="logo-img-container">
-                        <img className="logo-img" src="../../src/assets/card_rock.svg" alt="rock"/>
-                        <img className="logo-img" src="../../src/assets/card_paper.svg" alt="paper"/>
-                        <img className="logo-img" src="../../src/assets/card_scissor.svg" alt="scissor"/>
-                    </div>
+                    <Link to="/">
+                        <div className="logo-img-container">
+                            <img className="logo-img" src="../../src/assets/card_rock.svg" alt="rock"/>
+                            <img className="logo-img" src="../../src/assets/card_paper.svg" alt="paper"/>
+                            <img className="logo-img" src="../../src/assets/card_scissor.svg" alt="scissor"/>
+                        </div>
+                    </Link>
                 </div>
                 <div className="navbar-item-set">
                     <a className="navbar-item" href="#">Used technologies</a>
@@ -18,7 +20,7 @@ const RootLayout = () => {
                 </div>
                 <div className="navbar-item-set">
                     <a className="navbar-item" href="#">About us</a>
-                    <a className="navbar-item" href="#">Login/register</a>
+                    <Link to="/register" className="navbar-item">Login/register</Link>
                 </div>
             </div>
             <div className="outlet-container">

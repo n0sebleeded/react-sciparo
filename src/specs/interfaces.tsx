@@ -20,6 +20,12 @@ export interface ICords {
     y:number
 }
 
+export interface IFormData {
+    username: string;
+    password: string;
+    email: string;
+}
+
 export enum ICardType {
     CARD_PAPER = "CARD_PAPER",
     CARD_SCISSOR = "CARD_SCISSOR",
