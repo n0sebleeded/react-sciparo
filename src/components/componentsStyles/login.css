@@ -79,3 +79,12 @@
     padding-left: 10px;
     padding-right: 40px;
 }
+
+.emoji-hand {
+    width: min-content;
+}
+
+.phrase-emoji {
+    display: flex;
+    flex-direction: row;
+}
