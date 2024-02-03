@@ -1,0 +1,43 @@
+.idea-main-text {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffd500;
+    font-size: 24pt;
+    font-weight: lighter;
+    z-index: 5;
+}
+
+.idea-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 40vw;
+    align-items: center;
+}
+
+.kaiji-img {
+    height: 50rem;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.sub-idea-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 95vh;
+}
+
+.idea-img-container {
+    height: 95vh;
+    display: flex;
+    flex-direction: row;
+    max-width: 40vw;
+    align-items: center;
+}
+
+.idea-imgtext {
+    display: flex;
+    flex-direction: row;
+    max-width: 40vw;
+    justify-content: center;
+    align-items: center;
+}

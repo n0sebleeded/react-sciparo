@@ -7,6 +7,7 @@ import RootLayout from "./components/RootLayout.tsx";
 import Login from "./components/Login.tsx";
 import {AnimatePresence} from "framer-motion";
 import Navbar from "./components/Navbar.tsx";
+import Idea from "./components/Idea.tsx";
 
 //TODO: Animation will be rework fr
 
@@ -19,6 +20,7 @@ function App() {
               <Routes key={location.pathname} location={location}>
                   <Route path="/" element={<RootLayout />}>
                       <Route key="main" index element={<MainPage />} />
+                      <Route key="Idea" path="idea" element={<Idea />} />
                       <Route key="game" path="game" element={<CardList />} />
                       <Route key="reg" path="register" element={<Login />} />
                   </Route>

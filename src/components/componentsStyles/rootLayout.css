@@ -5,9 +5,6 @@
     overflow-y: hidden;
 }
 
-{/*
-    TODO:navbar also will be redesign
-*/}
 .navbar {
     display: flex;
     color: honeydew;

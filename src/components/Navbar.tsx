@@ -25,7 +25,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-item-set">
                 <a className="navbar-item" href="#">Used technologies</a>
-                <a className="navbar-item" href="#">What's idea?&#129300;</a>
+                <Link to="/idea" className="navbar-item">What's idea?&#129300;</Link>
             </div>
             <div className="navbar-item-set">
                 <a className="navbar-item" href="#">About us</a>
