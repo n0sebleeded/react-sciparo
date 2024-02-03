@@ -71,14 +71,13 @@ export default defineConfig({
 }
 ```
 ## Used stack:
--React
--React-Hook-Form
--Vite
--Typscript
--Redux
--Framer-motion
--Sass preprocessor
--
+- React
+- React-Hook-Form
+- Vite
+- Typscript
+- Redux
+- Framer-motion
+- Sass preprocessor
 
 ## Get started
 ```bash
