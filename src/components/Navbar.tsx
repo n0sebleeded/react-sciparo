@@ -25,7 +25,9 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="navbar-item-set">
-                <a className="navbar-item" href="#">Used technologies</a>
+                <Link to="/tech" className="navbar-item">
+                    <motion.p whileTap={{scale: 0.9}} transition={{type: "spring"}}>Used technologies</motion.p>
+                </Link>
                 <Link to="/idea" className="navbar-item">
                     <motion.p whileTap={{scale: 0.9}} transition={{type:"spring"}}>What's idea?&#129300;</motion.p>
                 </Link>

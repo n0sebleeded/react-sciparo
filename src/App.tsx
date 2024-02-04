@@ -9,6 +9,7 @@ import {AnimatePresence} from "framer-motion";
 import Navbar from "./components/Navbar.tsx";
 import Idea from "./components/Idea.tsx";
 import AboutUs from "./components/AboutUs.tsx";
+import UsedTech from "./components/UsedTech.tsx";
 
 function App() {
     const location = useLocation();
@@ -23,6 +24,7 @@ function App() {
                       <Route key="game" path="game" element={<CardList />} />
                       <Route key="reg" path="register" element={<Login />} />
                       <Route key="about" path="about" element={<AboutUs />}/>
+                      <Route key="tech" path="tech" element={<UsedTech />} />
                   </Route>
                   <Route path="*" element={<ErrorPage />}/>
               </Routes>
