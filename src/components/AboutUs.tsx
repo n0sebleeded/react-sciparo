@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import '../../src/components/componentsStyles/aboutUs.css'
-
 const AboutUs = () => {
     const horizontal = {
         initial: { opacity: 0, x: 100 },
@@ -14,6 +13,13 @@ const AboutUs = () => {
         exit: { opacity: 0, x: 100 },
     };
 
+    const altBackEnd:string[] = ["java.png", "spring.png", "hibernate.svg",
+                                "thymeleaf.png", "postgre.svg", "redis.png",
+                                "mysql.svg", "rabbitmq.png", "git.png", "gitlab.png"]
+
+    const altFrontEnd:string[] = ["react.png", "vite.svg", "ts.png",
+                                "js.png", "css.svg", "html.svg", "tailwind.png",
+                                "threejs.png", "webpack.png", "git.png"]
 
     return (
         <div className="about-main-container">
@@ -46,16 +52,15 @@ const AboutUs = () => {
                     <div className="contact">
                         <span className="contact-span-headline">Tech stack |</span>
                         <div className="logos-block">
-                            <motion.img className="tech-stack" src="../../src/assets/logos/java.png" alt="java" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/spring.png" alt="spring" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/hibernate.svg" alt="hibernate" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/thymeleaf.png" alt="thymeleaf" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/postgre.svg" alt="postgre" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/redis.png" alt="redis" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/mysql.svg" alt="mysql" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/rabbitmq.png" alt="rabbitmq" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/git.png" alt="gitl" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/gitlab.png" alt="gitlab" whileTap={{scale: 0.9}}/>
+                            {altBackEnd.map((imageName, index) => (
+                                <motion.img
+                                    key={index}
+                                    className="tech-stack"
+                                    src={`../../src/assets/logos/${imageName}`}
+                                    alt={imageName.replace(/\.\w+$/, '')}
+                                    whileTap={{ scale: 0.9 }}
+                                />
+                            ))}
                         </div>
                     </div>
                 </motion.div>
@@ -89,16 +94,15 @@ const AboutUs = () => {
                     <div className="contact">
                         <span className="contact-span-headline">Tech stack |</span>
                         <div className="logos-block">
-                            <motion.img className="tech-stack" src="../../src/assets/logos/react.png" alt="react" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/vite.svg" alt="vite" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/ts.png" alt="ts" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/js.png" alt="js" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/css.svg" alt="css" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/html.svg" alt="html" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/tailwind.png" alt="tailwind" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/threejs.png" alt="threejs" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/webpack.png" alt="webpack" whileTap={{scale: 0.9}}/>
-                            <motion.img className="tech-stack" src="../../src/assets/logos/git.png" alt="gitl" whileTap={{scale: 0.9}}/>
+                            {altFrontEnd.map((imageName, index) => (
+                                <motion.img
+                                    key={index}
+                                    className="tech-stack"
+                                    src={`../../src/assets/logos/${imageName}`}
+                                    alt={imageName.replace(/\.\w+$/, '')}
+                                    whileTap={{ scale: 0.9 }}
+                                />
+                            ))}
                         </div>
                     </div>
                 </motion.div>

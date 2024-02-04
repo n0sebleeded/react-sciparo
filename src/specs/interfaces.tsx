@@ -22,6 +22,10 @@ export interface ICords {
     y:number
 }
 
+export interface IPlaceImage {
+    altBackEnd: string[];
+}
+
 export interface IProps {
     children: ReactNode;
 }
