@@ -22,6 +22,11 @@ export interface ICords {
     y:number
 }
 
+export interface INotification {
+    state: boolean,
+    success: boolean
+}
+
 export interface IPlaceImage {
     altBackEnd: string[];
 }
