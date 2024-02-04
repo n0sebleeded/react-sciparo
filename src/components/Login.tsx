@@ -3,6 +3,7 @@ import '../../src/components/componentsStyles/btn.css'
 import {useForm} from "react-hook-form";
 import {IFormData} from "../specs/interfaces.tsx";
 import { motion } from 'framer-motion';
+import axios from "axios";
 // ... (imports and styles)
 
 const Login = () => {
@@ -17,6 +18,17 @@ const Login = () => {
         initial: { opacity: 1, rotate: 45 },
         animate: { opacity: 1, rotate: 0, transition: {duration: 0.5, delay: 1, type: "spring"} },
     }
+
+    const onSubmit = (data:IFormData) => {
+        axios.post(
+                'http://192.168.0.103:8080/players/create',
+                data,
+                { headers: { 'Content-Type': 'application/json' }}
+            )
+            .then((response: {data: IFormData}) => {console.log(response.data)})
+            .catch((error: {data: IFormData}) => {console.log(error.data)});
+    };
+
     return (
         <motion.div className="login-container" variants={popup}
                     initial="initial"
@@ -37,7 +49,7 @@ const Login = () => {
                     </h1>
                 </div>
                 <div className="form">
-                    <form onSubmit={handleSubmit((data) => console.log(data))}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="login-field">
                             <p>Enter your login: </p>
                             <input className="inp-format" type="text" id="username" {...register("username", {
@@ -51,7 +63,7 @@ const Login = () => {
                                     message: "Maximum length - 4 characters"
                                 },
                                 pattern: {
-                                    value: /^[a-z0-9_-]{4,15}$/,
+                                    value: /^[a-zA-Z0-9_-]{4,15}$/,
                                     message: "Only english letters or digits"
                                 }
                             })}/>
@@ -62,7 +74,7 @@ const Login = () => {
                         }
                         <div className="password-field">
                             <p>Enter your password: </p>
-                            <input className="inp-format" type="text" id="passw" {...register("password", {
+                            <input className="inp-format" type="text" id="passwordText" {...register("passwordText", {
                                 required: "This field is required",
                                 minLength: {
                                     value: 8,
@@ -79,15 +91,15 @@ const Login = () => {
                             })} />
                         </div>
                         {
-                            errors.password?.message &&
-                            <p className="error-box">{errors.password?.message}</p>
+                            errors.passwordText?.message &&
+                            <p className="error-box">{errors.passwordText?.message}</p>
                         }
                         <div className="email-field">
                             <p>Enter your email: </p>
                             <input className="inp-format-rev" {...register("email", {
                                 required: "This field is required",
                                 pattern: {
-                                    value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                                    value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
                                     message: "Incorrect value"
                                 }
                             })} type="text" id="emai"/>

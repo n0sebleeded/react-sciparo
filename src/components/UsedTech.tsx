@@ -15,7 +15,7 @@ const UsedTech = () => {
         exit: { opacity: 0, x: 100 },
     };
 
-    const Front = ["ReactTS", "React-Form-Hook", "Framer-motion", "Sass", "Redux"];
+    const Front = ["ReactTS", "React-Form-Hook", "Framer-motion", "Sass", "Redux", "Axios"];
     const Back = ["Spring Boot", "Hibernate", "Spring Data JPA", "Spring Security", "Spring WebSocket", "MongoDB"];
 
     return (

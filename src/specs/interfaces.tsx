@@ -32,7 +32,7 @@ export interface IProps {
 
 export interface IFormData {
     username: string;
-    password: string;
+    passwordText: string;
     email: string;
 }
 
