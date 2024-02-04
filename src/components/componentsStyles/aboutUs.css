@@ -1,0 +1,92 @@
+.about-main-container {
+    width: 85vw;
+    margin: 0 auto;
+}
+
+.leftside-container-about, .rightside-container-about {
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+}
+
+.about-text {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    color: whitesmoke;
+    font-size: 1.5rem;
+}
+
+.about-name {
+    text-align: center;
+    font-size: 4rem;
+    color: #ffd500;
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.contact-span-headline {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #ffd500;
+}
+
+.contact-span {
+    font-weight: lighter;
+    color: white;
+}
+
+.logo-g, .logo {
+    padding: 1em 0.5em;
+    height: 2em;
+}
+
+.logo-g {
+    filter: invert(100%);
+}
+
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.logo-container-v {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.tech-stack {
+    padding: 0 3px;
+    width: 2rem;
+}
+
+.logos-block {
+    display: flex;
+    align-items: center;
+}
+
+.user-logo-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.user-logo, .user-logo-d {
+    height: 30rem;
+    width: 30rem;
+}
+
+.user-logo-d {
+    filter: invert(100%);
+}

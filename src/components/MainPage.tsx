@@ -19,7 +19,7 @@ const MainPage = () => {
         animate: { opacity: 1 },
         exit: { opacity: 0 },
     }
-    //TODO: will be redesign
+
     return (
         <div className="main-container">
             <div className="sub-container">

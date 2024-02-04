@@ -29,7 +29,7 @@ const cardReducer = (state = initialState, action: ActionTypes): CardState => {
 
 const rootReducer = combineReducers({
     card: cardReducer,
-    // Другие редьюсеры...
+    // Other reducers
 });
 
 export default rootReducer;

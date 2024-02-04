@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import '../../src/components/componentsStyles/rootLayout.css'
 
 const Navbar = () => {
     const vertical = {
@@ -16,20 +17,26 @@ const Navbar = () => {
         >
             <div className="navbar-item-set">
                 <Link to="/">
-                    <div className="logo-img-container">
+                    <motion.div className="logo-img-container" whileTap={{scale: 0.9}} transition={{type:"spring"}}>
                         <img className="logo-img" src="../../src/assets/card_rock.svg" alt="rock"/>
                         <img className="logo-img" src="../../src/assets/card_paper.svg" alt="paper"/>
                         <img className="logo-img" src="../../src/assets/card_scissor.svg" alt="scissor"/>
-                    </div>
+                    </motion.div>
                 </Link>
             </div>
             <div className="navbar-item-set">
                 <a className="navbar-item" href="#">Used technologies</a>
-                <Link to="/idea" className="navbar-item">What's idea?&#129300;</Link>
+                <Link to="/idea" className="navbar-item">
+                    <motion.p whileTap={{scale: 0.9}} transition={{type:"spring"}}>What's idea?&#129300;</motion.p>
+                </Link>
             </div>
             <div className="navbar-item-set">
-                <a className="navbar-item" href="#">About us</a>
-                <Link to="/register" className="navbar-item">Login/register</Link>
+                <Link to="/about" className="navbar-item">
+                    <motion.p whileTap={{scale: 0.9}} transition={{type:"spring"}}>About us</motion.p>
+                </Link>
+                <Link to="/register" className="navbar-item">
+                    <motion.p whileTap={{scale: 0.9}} transition={{type:"spring"}}>Login/Register</motion.p>
+                </Link>
             </div>
         </motion.div>
     );
