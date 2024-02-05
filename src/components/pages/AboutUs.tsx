@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import '../../src/components/componentsStyles/aboutUs.css'
+import '../components-styles/aboutUs.css'
 const AboutUs = () => {
     const horizontal = {
         initial: { opacity: 0, x: 100 },
@@ -39,10 +39,10 @@ const AboutUs = () => {
                     <p className="about-text">C# ASP.NET / Java Spring developer</p>
                     <div className="logo-container-v">
                         <motion.a href="https://github.com/sabexzero" whileTap={{scale: 0.8}}>
-                            <img className="logo-g" src="../../src/assets/logos/github.png" alt="git"/>
+                            <img className="logo-g" src="../../../src/assets/logos/github.png" alt="git"/>
                         </motion.a>
                         <motion.a href="https://t.me/sa666ex" whileTap={{scale: 0.8}}>
-                            <img className="logo" src="../../src/assets/logos/telegram.png" alt="telegram"/>
+                            <img className="logo" src="../../../src/assets/logos/telegram.png" alt="telegram"/>
                         </motion.a>
                     </div>
                     <div className="contact">
@@ -81,10 +81,10 @@ const AboutUs = () => {
                     <p className="about-text">React JS/TS Frontend developer</p>
                     <div className="logo-container">
                         <motion.a href="https://github.com/n0sebleeded" whileTap={{scale: 0.8}}>
-                            <img className="logo-g" src="../../src/assets/logos/github.png" alt="git"/>
+                            <img className="logo-g" src="../../../src/assets/logos/github.png" alt="git"/>
                         </motion.a>
                         <motion.a href="https://t.me/tonyredgrave" whileTap={{scale: 0.8}}>
-                            <img className="logo" src="../../src/assets/logos/telegram.png" alt="telegram"/>
+                            <img className="logo" src="../../../src/assets/logos/telegram.png" alt="telegram"/>
                         </motion.a>
                     </div>
                     <div className="contact">

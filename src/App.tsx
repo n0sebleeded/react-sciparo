@@ -1,15 +1,15 @@
 import './App.css'
 import {BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
-import CardList from "./components/CardList.tsx";
-import ErrorPage from "./components/ErrorPage.tsx";
-import MainPage from "./components/MainPage.tsx";
+import CardList from "./components/game-components/CardList.tsx";
+import ErrorPage from "./components/pages/ErrorPage.tsx";
+import MainPage from "./components/pages/MainPage.tsx";
 import RootLayout from "./components/RootLayout.tsx";
-import Login from "./components/Login.tsx";
+import Login from "./components/pages/Login.tsx";
 import {AnimatePresence} from "framer-motion";
 import Navbar from "./components/Navbar.tsx";
-import Idea from "./components/Idea.tsx";
-import AboutUs from "./components/AboutUs.tsx";
-import UsedTech from "./components/UsedTech.tsx";
+import Idea from "./components/pages/Idea.tsx";
+import AboutUs from "./components/pages/AboutUs.tsx";
+import UsedTech from "./components/pages/UsedTech.tsx";
 
 function App() {
     const location = useLocation();

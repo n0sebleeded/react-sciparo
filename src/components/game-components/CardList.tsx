@@ -1,6 +1,6 @@
-import CardItem from './CardItem';
-import './componentsStyles/сardList.css'
-import {ICard, ICardType} from "../specs/interfaces.tsx";
+import CardItem from './CardItem.tsx';
+import '../components-styles/сardList.css'
+import {ICard, ICardType} from "../../specs/interfaces.tsx";
 
 function CardList() {
     const playerCards: ICard[] = [

@@ -1,6 +1,6 @@
 import {motion} from "framer-motion";
-import '../../src/components/componentsStyles/aboutUs.css'
-import '../../src/components/componentsStyles/usedTech.css'
+import '../components-styles/aboutUs.css'
+import '../components-styles/usedTech.css'
 
 const UsedTech = () => {
     const horizontal = {

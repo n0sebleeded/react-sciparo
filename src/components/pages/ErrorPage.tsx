@@ -1,4 +1,4 @@
-import "./componentsStyles/errorPage.css"
+import "../components-styles/errorPage.css"
 /*import { Link } from "react-router-dom";*/
 function ErrorPage() {
     return (

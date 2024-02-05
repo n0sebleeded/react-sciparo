@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from 'react-redux';
-import { resetSelectedCard, setSelectedCard } from "../redux/actions.ts";
-import { ICard, ICardType, ICords } from "../specs/interfaces.tsx";
-import './componentsStyles/card.css';
+import { resetSelectedCard, setSelectedCard } from "../../redux/actions.ts";
+import { ICard, ICardType, ICords } from "../../specs/interfaces.tsx";
+import '../components-styles/card.css';
 
 //FIXME: mouse cursor:pointer
 const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {

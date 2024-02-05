@@ -1,4 +1,4 @@
-import './componentsStyles/mainPage.css';
+import '../components-styles/mainPage.css';
 import { motion } from 'framer-motion';
 
 const MainPage = () => {
@@ -62,7 +62,7 @@ const MainPage = () => {
                                     exit="exit"
                                     transition={{duration: 1}}
                         >
-                            <img className="main-img" src="../../src/assets/card_rock.svg" alt="rock"/>
+                            <img className="main-img" src="../../../src/assets/card_rock.svg" alt="rock"/>
                         </motion.div>
                         <motion.div variants={horizontal}
                                     initial="initial"
@@ -70,7 +70,7 @@ const MainPage = () => {
                                     exit="exit"
                                     transition={{duration: 1, delay: 0.5}}
                         >
-                            <img className="main-img" src="../../src/assets/card_paper.svg" alt="paper"/>
+                            <img className="main-img" src="../../../src/assets/card_paper.svg" alt="paper"/>
                         </motion.div>
                         <motion.div variants={horizontal}
                                     initial="initial"
@@ -78,7 +78,7 @@ const MainPage = () => {
                                     exit="exit"
                                     transition={{duration: 1, delay: 1}}
                         >
-                            <img className="main-img" src="../../src/assets/card_scissor.svg" alt="scissor"/>
+                            <img className="main-img" src="../../../src/assets/card_scissor.svg" alt="scissor"/>
                         </motion.div>
                     </div>
                     <motion.div variants={fade}

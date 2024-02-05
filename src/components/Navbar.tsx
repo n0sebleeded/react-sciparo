@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import '../../src/components/componentsStyles/rootLayout.css'
+import './components-styles/rootLayout.css'
 
 const Navbar = () => {
     const vertical = {

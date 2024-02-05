@@ -1,11 +1,11 @@
-import '../../src/components/componentsStyles/login.css'
-import '../../src/components/componentsStyles/btn.css'
+import '../components-styles/login.css'
+import '../components-styles/btn.css'
 import {useForm} from "react-hook-form";
-import {IFormData, INotification} from "../specs/interfaces.tsx";
+import {IFormData, INotification} from "../../specs/interfaces.tsx";
 import { motion } from 'framer-motion';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import Notification from "./Notification.tsx";
+import Notification from "../Notification.tsx";
 import {useState} from "react";
 // ... (imports and styles)
 

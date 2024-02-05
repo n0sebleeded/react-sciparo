@@ -1,4 +1,4 @@
-import '../../src/components/componentsStyles/idea.css'
+import '../components-styles/idea.css'
 import {motion} from "framer-motion";
 
 const Idea = () => {

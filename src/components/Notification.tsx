@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import '../../src/components/componentsStyles/notification.css'
+import './components-styles/notification.css'
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import ClearIcon from '@mui/icons-material/Clear';
 
