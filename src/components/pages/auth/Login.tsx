@@ -2,8 +2,10 @@ import React from 'react';
 import '../../components-styles/login-register.css'
 import '../../components-styles/btn.css'
 import {motion} from 'framer-motion';
-import {popup, rotate} from "./Anims.ts";
 import GifContainer from "./GifContainer.tsx";
+import Greeting from "./Greeting.tsx";
+import UsernameForm from "./form/UsernameForm.tsx";
+import PasswordForm from "./form/PasswordForm.tsx";
 
 // ... (imports and styles)
 
@@ -15,29 +17,10 @@ const Login = ({ setClicked, isClicked }: {setClicked: React.Dispatch<React.SetS
                 <div className="form">
                     <div className="scale-changer">
                         <div className="welcome">
-                            <motion.p className="phrase-emoji" variants={popup}
-                                      initial="initial"
-                                      animate="animate"
-                                      exit={{opacity: 0}}
-                            >
-                                Welcome back,<br />
-                                <span className="highlighted-text">user</span>!
-                                <motion.span className="emoji-hand" variants={rotate}
-                                             initial="initial"
-                                             animate="animate"
-                                >
-                                    &#128075;
-                                </motion.span>
-                            </motion.p>
+                            <Greeting login={true} />
                         </div>
-                        <div className="login-field">
-                            <p>Username</p>
-                            <input className="inp-format" type="text" id="username-login"/>
-                        </div>
-                        <div className="password-field">
-                            <p>Password</p>
-                            <input className="inp-format" type="text" id="passwordText-login"/>
-                        </div>
+                        <UsernameForm login={true} register={null}/>
+                        <PasswordForm login={true} register={null}/>
                     </div>
                     <div className="button-field">
                         <button type="submit" className="btn btn-white btn-animate">Login</button>

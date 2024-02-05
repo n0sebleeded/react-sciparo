@@ -9,6 +9,7 @@ export interface ICardGroup {
 }*/
 
 import {ReactNode} from "react";
+import {UseFormRegister} from "react-hook-form";
 
 export interface ICard {
     id: number,
@@ -27,8 +28,9 @@ export interface INotification {
     success: boolean
 }
 
-export interface IPlaceImage {
-    altBackEnd: string[];
+export interface IForm {
+    login?: boolean,
+    register:UseFormRegister<IFormData> | null
 }
 
 export interface IProps {
