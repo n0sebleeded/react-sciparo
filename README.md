@@ -78,6 +78,8 @@ export default defineConfig({
 - Redux
 - Framer-motion
 - Sass preprocessor
+- Axios
+- @mui/icons-material
 
 ## Get started
 ```bash
