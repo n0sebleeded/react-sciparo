@@ -8,13 +8,16 @@
     color: #ffd500;
     font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
-    mask-image: url("/src/assets/card_scissor.svg"); /* Используем картинку для маски */
+    /*
+    mask-image: url("/src/assets/card_scissor.svg");
     mask-size: auto;
     mask-repeat: no-repeat;
     -webkit-mask-position-x: center;
     -webkit-mask-position-y: center;
+    */
 }
 
+/*
 .login-container::before {
     content: '';
     position: absolute;
@@ -27,31 +30,71 @@
     background-repeat: no-repeat;
     z-index: 1;
 }
+*/
 
 .login-box {
     clip-path: url("/src/assets/card_scissor.svg");
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 3.5rem 2rem;
     background-color: #1a1a1a;
-    border-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
     z-index: 2;
     filter: drop-shadow(2px 4px 6px black);
-    filter: saturate(0.5);
+    filter: saturate(1);
+}
+
+.gif-container {
+    position: relative;
+    display: flex;
+    flex-basis: 50%;
+    width: 30%;
+    height: 100%;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.gif {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 
 .welcome {
-    padding: 0rem;
-    font-size: 18pt;
+    padding: 2rem;
+    font-size: 20pt;
 }
 
-.login-field, .password-field, .email-field, .button-field {
+.login-field, .password-field, .email-field {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
     margin: 2rem 1rem;
+    font-size: 16pt;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    color: #c2a300;
+}
+
+.button-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
     font-size: 16pt;
     font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
@@ -85,6 +128,38 @@
 }
 
 .phrase-emoji {
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: row;
+    color: whitesmoke;
+}
+
+.gif-and-login-box {
+    width: 40%;
+    height: 60vh;
+    display: flex;
+    background-color: #1a1a1a;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.scale-changer {
+    scale: 0.85;
+}
+
+.video-text-container {
+    position: absolute;
+    align-items: center;
+    bottom: 50%;
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #1a1a1a;
+    border-radius: 5px;
+}
+
+.video-text {
+    width: 50%;
+    font-size: 18pt;
+    color: white;
+    mix-blend-mode: difference;
 }

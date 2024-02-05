@@ -45,6 +45,7 @@
 
 .highlighted-text {
     color: #FFEA00;
+    font-weight: bold;
     filter: hue-rotate(-10deg);
 }
 

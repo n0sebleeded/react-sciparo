@@ -1,5 +1,6 @@
 import '../components-styles/mainPage.css';
 import { motion } from 'framer-motion';
+import {Link} from "react-router-dom";
 
 const MainPage = () => {
     const vertical = {
@@ -86,11 +87,10 @@ const MainPage = () => {
                                 animate="animate"
                                 exit="exit"
                                 transition={{duration: 2, delay: 0}}>
-                        <p className="sub-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ligula
-                            libero,
-                            semper sed turpis in, <span className="highlighted-text">aliquam consequat odio</span>. Ut
-                            ullamcorper mauris ex, ac tincidunt elit
-                            euismod a👏👏
+                        <p className="sub-text">
+                            Welcome to RPS🥳 .
+                            RPS is a unique platform for playing an unusual form of the well-known game - rock paper scissors.
+                            In order to play with other players or your friends you need to <Link to="/register" className="highlighted-text">register</Link>👀.
                         </p>
                     </motion.div>
                 </div>

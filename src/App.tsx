@@ -4,7 +4,7 @@ import CardList from "./components/game-components/CardList.tsx";
 import ErrorPage from "./components/pages/ErrorPage.tsx";
 import MainPage from "./components/pages/MainPage.tsx";
 import RootLayout from "./components/RootLayout.tsx";
-import Login from "./components/pages/Login.tsx";
+import Register from "./components/pages/auth/Register.tsx";
 import {AnimatePresence} from "framer-motion";
 import Navbar from "./components/Navbar.tsx";
 import Idea from "./components/pages/Idea.tsx";
@@ -22,7 +22,7 @@ function App() {
                       <Route key="main" index element={<MainPage />} />
                       <Route key="Idea" path="idea" element={<Idea />} />
                       <Route key="game" path="game" element={<CardList />} />
-                      <Route key="reg" path="register" element={<Login />} />
+                      <Route key="reg" path="register" element={<Register />} />
                       <Route key="about" path="about" element={<AboutUs />}/>
                       <Route key="tech" path="tech" element={<UsedTech />} />
                   </Route>
