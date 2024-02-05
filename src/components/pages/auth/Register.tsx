@@ -6,7 +6,8 @@ import {IFormData, INotification} from "../../../specs/interfaces.tsx";
 import {motion} from 'framer-motion';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import {popup, rightout, rotate} from "./Anims.ts";
+import {popup, rotate} from "./Anims.ts";
+import GifContainer from "./GifContainer.tsx";
 // ... (imports and styles)
 
 const Register = ({ setShowNotification, setClicked, isClicked }: { setShowNotification: React.Dispatch<SetStateAction<INotification>>,
@@ -45,23 +46,7 @@ const Register = ({ setShowNotification, setClicked, isClicked }: { setShowNotif
     //TODO: FIX ANIM
     return (
         <motion.div className="gif-and-login-box">
-            <motion.div className="gif-container"
-                variants={rightout}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                transition={{duration: 0.3, ease: "circIn"}}
-            >
-                <video className="gif" src="../../../../src/assets/RPS.mp4" autoPlay muted loop/>
-                <div className="video-text-container">
-                    <p className="video-text">Already have an account?</p>
-                    <button onClick={() => {
-                        setClicked(!isClicked)
-                    }}
-                            className="btn-sec btn-g btn-animate">Log in
-                    </button>
-                </div>
-            </motion.div>
+            <GifContainer login={false} setClicked={setClicked} isClicked={isClicked} />
             <form className="login-box" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form">
                     <div className="scale-changer">

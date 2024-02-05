@@ -2,7 +2,8 @@ import React from 'react';
 import '../../components-styles/login-register.css'
 import '../../components-styles/btn.css'
 import {motion} from 'framer-motion';
-import {popup, rotate, leftout} from "./Anims.ts";
+import {popup, rotate} from "./Anims.ts";
+import GifContainer from "./GifContainer.tsx";
 
 // ... (imports and styles)
 
@@ -19,7 +20,8 @@ const Login = ({ setClicked, isClicked }: {setClicked: React.Dispatch<React.SetS
                                       animate="animate"
                                       exit={{opacity: 0}}
                             >
-                                Welcome back,<br /><span className="highlighted-text">user</span>!
+                                Welcome back,<br />
+                                <span className="highlighted-text">user</span>!
                                 <motion.span className="emoji-hand" variants={rotate}
                                              initial="initial"
                                              animate="animate"
@@ -42,23 +44,7 @@ const Login = ({ setClicked, isClicked }: {setClicked: React.Dispatch<React.SetS
                     </div>
                 </div>
             </form>
-            <motion.div className="gif-container"
-                variants={leftout}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                transition={{duration: 0.3, ease: "circIn"}}
-            >
-                <video className="gif" src="../../../../src/assets/RPS.mp4" autoPlay muted loop/>
-                <div className="video-text-container">
-                    <p className="video-text">Don't have account yet?</p>
-                    <button onClick={() => {
-                        setClicked(!isClicked)
-                    }}
-                            className="btn-sec btn-g btn-animate">Register
-                    </button>
-                </div>
-            </motion.div>
+            <GifContainer login={true} setClicked={setClicked} isClicked={isClicked} />
         </motion.div>
     );
 };
