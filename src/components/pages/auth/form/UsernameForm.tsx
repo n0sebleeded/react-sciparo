@@ -4,11 +4,9 @@ const UsernameForm = ({login, register} : IForm) => {
     return (
         <div className="login-field">
             <p>Username</p>
-            {login &&
-                <input className="inp-format" type="text" id="username-login"/>
-            }
-            {!login &&
-                <input className="inp-format" type="text" id="username" {...register ? register("username", {
+            {login
+                ? <input className="inp-format" type="text" id="username-login"/>
+                : <input className="inp-format" type="text" id="username" {...register ? register("username", {
                     required: "This is a required value",
                     minLength: {
                         value: 4,
@@ -22,7 +20,7 @@ const UsernameForm = ({login, register} : IForm) => {
                         value: /^[a-zA-Z0-9_-]{4,15}$/,
                         message: "Only english letters or digits"
                     }
-                }):null}/>
+                }) : null}/>
             }
         </div>
     );

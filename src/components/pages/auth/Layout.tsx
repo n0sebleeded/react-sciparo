@@ -23,14 +23,12 @@ const Layout = () => {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        transition={{duration: 1, type:"spring"}}
+                        transition={{duration: 0.5, type:"spring"}}
             >
                 <AnimatePresence mode="wait">
-                    {!isClicked &&
-                        <Register key={uuidv4()} setShowNotification={setShowNotification} setClicked={setClicked} isClicked={isClicked}></Register>
-                    }
-                    {isClicked &&
-                        <Login key={uuidv4()} setClicked={setClicked} isClicked={isClicked}></Login>
+                    {isClicked
+                        ? <Login key={uuidv4()} setClicked={setClicked} isClicked={isClicked}></Login>
+                        : <Register key={uuidv4()} setShowNotification={setShowNotification} setClicked={setClicked} isClicked={isClicked}></Register>
                     }
                 </AnimatePresence>
             </motion.div>

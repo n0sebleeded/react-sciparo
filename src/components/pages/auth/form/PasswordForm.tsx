@@ -4,12 +4,10 @@ const PasswordForm = ({login, register} : IForm) => {
     return (
         <div className="password-field">
             <p>Password</p>
-            {login &&
-                <input className="inp-format" type="text" id="passwordText-login"/>
-            }
-            {!login &&
-                <input className="inp-format" type="text"
-                       id="passwordText" {...register ? register("passwordText", {
+            {login
+                ? <input className="inp-format" type="text" id="passwordText-login"/>
+                : <input className="inp-format" type="text"
+                         id="passwordText" {...register ? register("passwordText", {
                     required: "This field is required",
                     minLength: {
                         value: 8,
@@ -23,7 +21,7 @@ const PasswordForm = ({login, register} : IForm) => {
                         value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/,
                         message: "Password must contain a letter and a digit",
                     }
-                }) :null} />
+                }) : null} />
             }
         </div>
     );
