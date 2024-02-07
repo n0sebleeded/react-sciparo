@@ -1,3 +1,5 @@
+import React from "react";
+
 /*
 export interface ICard extends ICardGroup{
     Text:string,
@@ -12,7 +14,7 @@ import {ReactNode} from "react";
 import {UseFormRegister} from "react-hook-form";
 
 export interface ICard {
-    id: number,
+    id: string,
     Text: string,
     Hidden: boolean,
     Type:ICardType
@@ -26,6 +28,10 @@ export interface ICords {
 export interface INotification {
     state: boolean,
     success: boolean
+}
+
+export interface INotificationProp {
+    setShowNotification: React.Dispatch<React.SetStateAction<INotification>>
 }
 
 export interface IForm {

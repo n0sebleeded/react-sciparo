@@ -5,14 +5,16 @@ import {INotification} from "../../../specs/interfaces.tsx";
 import Register from "./Register.tsx";
 import Login from "./Login.tsx";
 import {popup} from "./Anims.ts";
-import {v4 as uuidv4} from "uuid";
+import {v4 as uuid} from "uuid";
+import {useSelector} from "react-redux";
+import {IRootStateLogin} from "../../../redux/actionTypes.ts";
 
 const Layout = () => {
     const [showNotification, setShowNotification] = useState<INotification>({
         state: false,
         success: false
     });
-    const [isClicked, setClicked] = useState(false);
+    const login = useSelector((state:IRootStateLogin) => state.LogIn.login);
     //FIXME: rotate hand-emoji
     return (
         <>
@@ -23,14 +25,12 @@ const Layout = () => {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        transition={{duration: 1, type:"spring"}}
+                        transition={{duration: 0.5, type:"spring"}}
             >
                 <AnimatePresence mode="wait">
-                    {!isClicked &&
-                        <Register key={uuidv4()} setShowNotification={setShowNotification} setClicked={setClicked} isClicked={isClicked}></Register>
-                    }
-                    {isClicked &&
-                        <Login key={uuidv4()} setClicked={setClicked} isClicked={isClicked}></Login>
+                    {login
+                        ? <Login key={uuid()}></Login>
+                        : <Register key={uuid()} setShowNotification={setShowNotification}></Register>
                     }
                 </AnimatePresence>
             </motion.div>

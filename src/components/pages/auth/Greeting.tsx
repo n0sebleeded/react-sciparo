@@ -9,16 +9,14 @@ const Greeting = ({login}:{login:boolean}) => {
                       animate="animate"
                       exit={{opacity: 0}}
             >
-                {login &&
-                    <>
-                        Welcome back,<br/>
-                        <span className="highlighted-text">user</span>!
-                    </>
-                }
-                {!login &&
-                    <>
-                        Let us know&nbsp;<span className="highlighted-text">you</span>!
-                    </>
+                {login
+                    ?   <>
+                            Welcome back,<br/>
+                            <span className="highlighted-text">user</span>!
+                        </>
+                    :   <>
+                            Let us know&nbsp;<span className="highlighted-text">you</span>!
+                        </>
                 }
                 <motion.span className="emoji-hand" variants={rotate}
                              initial="initial"

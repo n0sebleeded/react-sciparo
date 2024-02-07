@@ -1,6 +1,7 @@
+import React from "react";
 import {IForm} from "../../../../specs/interfaces.tsx";
 
-const EmailForm = ({register} : IForm) => {
+const EmailForm:React.FC<IForm> = ({register}) => {
     return (
         <div>
             <div className="email-field">
