@@ -1,6 +1,12 @@
-import { createStore } from 'redux';
-import rootReducer from './reducers'; // Импортируйте свой корневой редьюсер здесь
+import {configureStore} from "@reduxjs/toolkit";
+import selectCardReducer from "./reducers/cardSelectSlice.ts";
+import LoginReduces from "./reducers/loginSlice.ts";
 
-const store = createStore(rootReducer); // Создание хранилища Redux с помощью корневого редьюсера
+const store = configureStore({
+    reducer: {
+        selectedCard: selectCardReducer,
+        LogIn: LoginReduces
+    }
+});
 
 export default store;

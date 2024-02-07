@@ -1,16 +1,19 @@
-// actionTypes.ts
-export const SET_SELECTED_CARD = 'SET_SELECTED_CARD';
-export const RESET_SELECTED_CARD = 'RESET_SELECTED_CARD';
+export interface ICardsState {
+    selectedCard: string | null;
+}
 
-export type SetSelectedCardAction = {
-    type: typeof SET_SELECTED_CARD;
-    payload: {
-        cardId: number;
-    };
-};
+export const initialState:ICardsState = {
+    selectedCard: null
+}
 
-export type ResetSelectedCardAction = {
-    type: typeof RESET_SELECTED_CARD;
-};
+export interface IRootStateCard {
+    selectedCard: {
+        selectedCard: string | null
+    }
+}
 
-export type ActionTypes = SetSelectedCardAction | ResetSelectedCardAction;
+export interface IRootStateLogin {
+    LogIn: {
+        login: boolean
+    }
+}

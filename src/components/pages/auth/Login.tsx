@@ -1,4 +1,3 @@
-import React from 'react';
 import '../../components-styles/login-register.css'
 import '../../components-styles/btn.css'
 import {motion} from 'framer-motion';
@@ -9,7 +8,7 @@ import PasswordForm from "./form/PasswordForm.tsx";
 
 // ... (imports and styles)
 
-const Login = ({ setClicked, isClicked }: {setClicked: React.Dispatch<React.SetStateAction<boolean>>, isClicked:boolean}) => {
+const Login = () => {
     //TODO: FIX ANIM
     return (
         <motion.div className="gif-and-login-box">
@@ -27,7 +26,7 @@ const Login = ({ setClicked, isClicked }: {setClicked: React.Dispatch<React.SetS
                     </div>
                 </div>
             </form>
-            <GifContainer login={true} setClicked={setClicked} isClicked={isClicked} />
+            <GifContainer />
         </motion.div>
     );
 };

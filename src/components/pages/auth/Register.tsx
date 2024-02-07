@@ -1,8 +1,8 @@
-import React, {SetStateAction} from 'react';
+import React, {} from 'react';
 import '../../components-styles/login-register.css'
 import '../../components-styles/btn.css'
 import {useForm} from "react-hook-form";
-import {IFormData, INotification} from "../../../specs/interfaces.tsx";
+import {IFormData, INotificationProp} from "../../../specs/interfaces.tsx";
 import {motion} from 'framer-motion';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
@@ -11,18 +11,18 @@ import Greeting from "./Greeting.tsx";
 import UsernameForm from "./form/UsernameForm.tsx";
 import PasswordForm from "./form/PasswordForm.tsx";
 import EmailForm from "./form/EmailForm.tsx";
+import {useSelector} from "react-redux";
+import {IRootStateLogin} from "../../../redux/actionTypes.ts";
 // ... (imports and styles)
 
-const Register = ({ setShowNotification, setClicked, isClicked }: { setShowNotification: React.Dispatch<SetStateAction<INotification>>,
-                                                        setClicked: React.Dispatch<React.SetStateAction<boolean>>,
-                                                        isClicked:boolean}) => {
+const Register:React.FC<INotificationProp> = ({setShowNotification}) => {
     const { register, handleSubmit, formState: { errors }} = useForm<IFormData>();
     const nav = useNavigate();
+    const login = useSelector((state:IRootStateLogin) => state.LogIn.login);
 
     const onSubmit = (data:IFormData) => {
         axios.post(
-                'http://192.168.0.103:8080/players/create',
-                data,
+                'http://192.168.0.103:8080/players/create', data,
                 { headers: { 'Content-Type': 'application/json' }}
             )
             .then((response: {data: IFormData}) => {
@@ -49,7 +49,7 @@ const Register = ({ setShowNotification, setClicked, isClicked }: { setShowNotif
     //TODO: FIX ANIM
     return (
         <motion.div className="gif-and-login-box">
-            <GifContainer login={false} setClicked={setClicked} isClicked={isClicked} />
+            <GifContainer />
             <form className="login-box" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form">
                     <div className="scale-changer">
@@ -68,7 +68,7 @@ const Register = ({ setShowNotification, setClicked, isClicked }: { setShowNotif
                         }
                         <EmailForm register={register}/>
                         {
-                            errors.email?.message && !isClicked &&
+                            errors.email?.message && !login &&
                             <p className="error-box">{errors.email?.message}</p>
                         }
                     </div>

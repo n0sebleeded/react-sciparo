@@ -1,6 +1,7 @@
+import React from "react";
 import {IForm} from "../../../../specs/interfaces.tsx";
 
-const UsernameForm = ({login, register} : IForm) => {
+const UsernameForm:React.FC<IForm> = ({login, register}) => {
     return (
         <div className="login-field">
             <p>Username</p>

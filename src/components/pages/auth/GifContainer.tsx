@@ -1,11 +1,16 @@
 import {leftout, rightout} from "./Anims.ts";
 import {motion} from "framer-motion";
-import React from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {IRootStateLogin} from "../../../redux/actionTypes.ts";
+import {setLogin} from "../../../redux/reducers/loginSlice.ts";
 
-const GifContainer = ({login, setClicked, isClicked} : {login: boolean, setClicked: React.Dispatch<React.SetStateAction<boolean>>, isClicked:boolean}) => {
+const GifContainer = () => {
+    const login = useSelector((state:IRootStateLogin) => state.LogIn.login);
+    const dispatch = useDispatch();
+
     return (
         <motion.div className="gif-container"
-                    variants={login ? leftout : rightout}
+                    variants={login ? rightout : leftout}
                     initial="initial"
                     animate="animate"
                     exit="exit"
@@ -13,25 +18,25 @@ const GifContainer = ({login, setClicked, isClicked} : {login: boolean, setClick
         >
             <video className="gif" src="../../../../src/assets/RPS.mp4" autoPlay muted loop/>
             <div className="video-text-container">
-                {login &&
-                    <>
-                        <p className="video-text">Don't have account yet?</p>
-                        <button onClick={() => {
-                            setClicked(!isClicked)
-                        }}
-                                className="btn-sec btn-g btn-animate">Register
-                        </button>
-                    </>
-                }
-                {!login &&
-                    <>
-                        <p className="video-text">Already have an account?</p>
-                        <button onClick={() => {
-                            setClicked(!isClicked)
-                        }}
+                {login
+                    ?   <>
+                            <p className="video-text">Don't have account yet?</p>
+                            <button onClick={() => {
+                                const tempLogin = !login;
+                                dispatch(setLogin({tempLogin}));
+                            }}
+                                    className="btn-sec btn-g btn-animate">Register
+                            </button>
+                        </>
+                    :   <>
+                            <p className="video-text">Already have an account?</p>
+                            <button onClick={() => {
+                                const tempLogin = !login;
+                                dispatch(setLogin({tempLogin}));
+                            }}
                                 className="btn-sec btn-g btn-animate">Log in
-                        </button>
-                    </>
+                            </button>
+                        </>
                 }
             </div>
         </motion.div>

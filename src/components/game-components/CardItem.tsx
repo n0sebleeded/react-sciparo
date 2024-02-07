@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from 'react-redux';
-import { resetSelectedCard, setSelectedCard } from "../../redux/actions.ts";
+import {resetSelectedCard, setSelectedCard} from "../../redux/reducers/cardSelectSlice.ts";
 import { ICard, ICardType, ICords } from "../../specs/interfaces.tsx";
 import '../components-styles/card.css';
+import {IRootStateCard} from "../../redux/actionTypes.ts";
 
 //FIXME: mouse cursor:pointer
 const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
@@ -32,13 +33,14 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
              alt={type.toLowerCase()} />
     );
     const dispatch = useDispatch();
-    const selectedCard = useSelector((state: any) => state.card.selectedCard);
+    const selectedCard = useSelector((state: IRootStateCard) => state.selectedCard.selectedCard);
 
     const isClicked = selectedCard === id;
 
     const handleClick = () => {
         if (selectedCard === null) {
-            dispatch(setSelectedCard(id));
+            const selectedCard = id;
+            dispatch(setSelectedCard({selectedCard}));
         } else if (isClicked) {
             dispatch(resetSelectedCard());
             setCardState(prevState => ({ ...prevState, isHovering: false }));
