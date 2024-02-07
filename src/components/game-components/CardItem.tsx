@@ -7,6 +7,7 @@ import '../components-styles/card.css';
 import {IRootStateCard} from "../../redux/actionTypes.ts";
 
 //FIXME: mouse cursor:pointer
+//FIXME: selected card on resize
 const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
     const [cardState, setCardState] = useState({
         isAnimating: false,
@@ -54,11 +55,23 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
     }, [ref]);
 
     useEffect(() => {
+        const handleResize = () => {
+            setCardState(prevState => ({ ...prevState, cardCords: getCardCords(ref.current) }));
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [ref]);
+
+    useEffect(() => {
         if (isClicked || Hidden) return;
 
         setCardState(prevState => ({ ...prevState, isAnimating: true }));
         const animationTimeout = setTimeout(() =>
-            setCardState(prevState => ({ ...prevState, isAnimating: false })),
+                setCardState(prevState => ({ ...prevState, isAnimating: false })),
             500);
 
         return () => clearTimeout(animationTimeout);
@@ -88,10 +101,15 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
             style={cardStyle}
         >
             {!Hidden && (
-                <div className="card_item">
+                <motion.div className="card_item"
+                    initial={{opacity: 0, y: 100}}
+                    animate={{opacity: 1, y: 0}}
+                    exit={{opacity: 0, y:-100}}
+                    transition={{duration: 1, type: "spring"}}
+                >
                     {renderCardImage(Type)}
                     <p className="card_text">{Text}</p>
-                </div>
+                </motion.div>
             )}
         </motion.div>
     );

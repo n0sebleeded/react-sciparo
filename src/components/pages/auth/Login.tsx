@@ -9,7 +9,6 @@ import PasswordForm from "./form/PasswordForm.tsx";
 // ... (imports and styles)
 
 const Login = () => {
-    //TODO: FIX ANIM
     return (
         <motion.div className="gif-and-login-box">
             <form className="login-box">

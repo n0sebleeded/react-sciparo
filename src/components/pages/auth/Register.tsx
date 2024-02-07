@@ -46,7 +46,6 @@ const Register:React.FC<INotificationProp> = ({setShowNotification}) => {
             });
     };
 
-    //TODO: FIX ANIM
     return (
         <motion.div className="gif-and-login-box">
             <GifContainer />
