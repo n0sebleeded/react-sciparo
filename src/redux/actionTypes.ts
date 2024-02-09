@@ -1,5 +1,5 @@
 export interface ICardsState {
-    selectedCard: string | null;
+    selectedCard: number | null;
 }
 
 export const initialState:ICardsState = {
@@ -8,7 +8,7 @@ export const initialState:ICardsState = {
 
 export interface IRootStateCard {
     selectedCard: {
-        selectedCard: string | null
+        selectedCard: number | null
     }
 }
 

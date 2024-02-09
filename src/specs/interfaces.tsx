@@ -14,7 +14,7 @@ import {ReactNode} from "react";
 import {UseFormRegister} from "react-hook-form";
 
 export interface ICard {
-    id: string,
+    id: number,
     Text: string,
     Hidden: boolean,
     Type:ICardType
