@@ -1,9 +1,6 @@
 import '../components-styles/mainPage.css';
 import { motion } from 'framer-motion';
 import {Link} from "react-router-dom";
-import SockJS from "sockjs-client";
-import Stomp from "stompjs";
-import {useEffect} from "react";
 
 const MainPage = () => {
 
@@ -25,7 +22,7 @@ const MainPage = () => {
         exit: { opacity: 0 },
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         const socket = new SockJS('http://192.168.0.103:8080/ws');
         const stompClient = Stomp.over(socket);
 
@@ -43,7 +40,7 @@ const MainPage = () => {
         return () => {
             socket.close();
         };
-    }, []);
+    }, []);*/
 
     return (
         <div className="main-container">

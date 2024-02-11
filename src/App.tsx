@@ -10,6 +10,7 @@ import Idea from "./components/pages/Idea.tsx";
 import AboutUs from "./components/pages/AboutUs.tsx";
 import UsedTech from "./components/pages/UsedTech.tsx";
 import Layout from "./components/pages/auth/Layout.tsx";
+import LobbyList from "./components/game-components/LobbyList.tsx";
 
 function App() {
     const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
                       <Route key="main" index element={<MainPage />} />
                       <Route key="Idea" path="idea" element={<Idea />} />
                       <Route key="game" path="game" element={<CardList />} />
+                      <Route key="lobby" path="lobby" element={<LobbyList />} />
                       <Route key="reg" path="register" element={<Layout />} />
                       <Route key="about" path="about" element={<AboutUs />}/>
                       <Route key="tech" path="tech" element={<UsedTech />} />

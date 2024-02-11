@@ -1,0 +1,33 @@
+.container {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.under-container {
+    height: 72vh;
+    display: flex;
+    padding: 10% 0;
+    justify-content: center;
+    align-items: start;
+}
+
+.lobby-list {
+    background-color: #1A1A1A;
+    border-radius: 15px;
+    padding: 100px;
+}
+
+.lobby-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    color: white;
+    font-size: 1rem;
+}
+
+.lobby-item::marker {
+    content: "";
+}
+

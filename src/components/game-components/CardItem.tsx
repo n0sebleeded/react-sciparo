@@ -5,10 +5,6 @@ import {resetSelectedCard, setSelectedCard} from "../../redux/reducers/cardSelec
 import { ICard, ICardType, ICords } from "../../specs/interfaces.tsx";
 import '../components-styles/card.css';
 import {IRootStateCard} from "../../redux/actionTypes.ts";
-import * as SockJS from "sockjs-client";
-import Stomp from 'stompjs';
-import axios from "axios";
-
 
 //FIXME: mouse cursor:pointer
 //FIXME: selected card on resize

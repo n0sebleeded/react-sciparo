@@ -13,6 +13,24 @@ export interface ICardGroup {
 import {ReactNode} from "react";
 import {UseFormRegister} from "react-hook-form";
 
+export interface ILobby {
+    "id":string
+    "playersId": string[]
+    "bet": number,
+    "readyPlayersNumber": number,
+    "creatorUsername": string,
+    "creatorElo": number,
+    "title":string,
+}
+
+export interface ILobbyProps {
+    "id":string
+    "bet": number,
+    "creatorUsername": string,
+    "elo": number,
+    "title":string,
+}
+
 export interface ICard {
     id: number,
     Text: string,
