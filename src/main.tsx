@@ -7,7 +7,7 @@ import {BrowserRouter} from "react-router-dom";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 
 // Создание темы с дополнительными цветами
-const theme = createTheme({
+export const theme = createTheme({
     palette: {
         primary: {
             main: '#FFDE09',
@@ -21,6 +21,25 @@ const theme = createTheme({
     typography: {
         fontFamily: 'Montserrat, sans-serif',
     },
+    components: {
+        MuiTableCell: {
+            styleOverrides: {
+                root: {
+                    color: '#FFD500',
+                    borderBottomColor: '#1A1A1A',
+                    backgroundColor: '#242424',
+                    fontSize: '14pt',
+                }
+            }
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#1A1A1A'
+                }
+            }
+        }
+    }
 });
 
 

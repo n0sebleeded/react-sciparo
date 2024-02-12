@@ -5,7 +5,9 @@ import Stomp from 'stompjs';
 import {ILobby} from "../../specs/interfaces.tsx";
 import LobbyItem from "./LobbyItem.tsx";
 import axios from "axios";
-import {Paper, Table, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import {Container, Paper, Table, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import ButtonSty from '../styled-components/ButtonSty.ts';
+import ContainerSty from "../styled-components/ContainerSty.ts";
 
 //TODO: websocket --> long pooling?
 const LobbyList:React.FC = () => {
@@ -46,7 +48,7 @@ const LobbyList:React.FC = () => {
         }
 
         /*stompClient.send('http://192.168.0.103:8080/lobby/create', {}, JSON.stringify(tempData));*/
-        axios.post('http://192.168.0.103:8080/lobby/create', tempData,
+        axios.post('http://192.168.0.103:8080/lobbies/new', tempData,
             { headers: { 'Content-Type': 'application/json' }})
             .then((response) => console.log(response))
             .catch((e) => console.log(e));
@@ -55,28 +57,33 @@ const LobbyList:React.FC = () => {
     return (
         <div className="container">
             <div className="under-container">
-                <TableContainer component={Paper}>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>Bet</TableCell>
-                                <TableCell>Title</TableCell>
-                                <TableCell>Creator Username</TableCell>
-                                <TableCell>Elo</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        {lobbies && lobbies.map((lobby) => (
-                            <LobbyItem key={lobby.id} id={lobby.id}
-                                       bet={lobby.bet}
-                                       creatorUsername={lobby.creatorUsername}
-                                       elo={lobby.creatorElo}
-                                       title={lobby.title}
-                            />
-                        ))
-                        }
-                    </Table>
-                </TableContainer>
-                <button onClick={createLobby}>create lobby</button>
+                <ContainerSty>
+                    <TableContainer component={Paper}>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Bet</TableCell>
+                                    <TableCell>Title</TableCell>
+                                    <TableCell>Creator Username</TableCell>
+                                    <TableCell>Elo</TableCell>
+                                    <TableCell></TableCell>
+                                </TableRow>
+                            </TableHead>
+                            {lobbies && lobbies.map((lobby) => (
+                                <LobbyItem key={lobby.id} id={lobby.id}
+                                           bet={lobby.bet}
+                                           creatorUsername={lobby.creatorUsername}
+                                           elo={lobby.creatorElo}
+                                           title={lobby.title}
+                                />
+                            ))
+                            }
+                        </Table>
+                    </TableContainer>
+                </ContainerSty>
+                <Container>
+                    <ButtonSty onClick={createLobby}>Create lobby</ButtonSty>
+                </Container>
             </div>
         </div>
     );
