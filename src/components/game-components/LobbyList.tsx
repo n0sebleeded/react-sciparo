@@ -5,33 +5,30 @@ import Stomp from 'stompjs';
 import {ILobby} from "../../specs/interfaces.tsx";
 import LobbyItem from "./LobbyItem.tsx";
 import axios from "axios";
+import {Paper, Table, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 
 //TODO: websocket --> long pooling?
 const LobbyList:React.FC = () => {
 
     const [lobbies, setLobbies] = useState<ILobby[] | null>(null)
-
     const socket = new SockJS('http://192.168.0.103:8080/ws');
 
     // Создаем объект Stomp
     const stompClient = Stomp.over(socket);
+    stompClient.debug = () => {};
 
     useEffect(() => {
         console.count("CALLED")
-        console.log(lobbies);
         // Создаем SockJS-подключение
 
         const handleSubscription = (message: Stomp.Message) => {
-            console.log(message);
             const received = JSON.parse(message.body);
             setLobbies(received);
         };
 
 
-        // Подключаемся к серверу
         stompClient.connect({}, () => {
-            // Подписываемся на канал '/topic/messages'
-            stompClient.send('/app/getLobbies');
+            stompClient.send('/app/lobbies/list');
             stompClient.subscribe('/topic/lobby', handleSubscription);
         });
 
@@ -41,31 +38,9 @@ const LobbyList:React.FC = () => {
         };
     }, []);
 
-    /*useEffect(() => {
-        const socket = new SockJS('http://192.168.0.103:8080/ws');
-        const stompClient = Stomp.over(socket);
-
-        const handleSubscription = (message: Stomp.Message) => {
-            const received = JSON.parse(message.body);
-            setLobbies(received);
-        };
-
-        stompClient.connect({}, function () {
-            stompClient.send('/app/getLobbies');
-            stompClient.subscribe('/topic/lobby', handleSubscription);
-
-            // Очистка: Отписываемся и закрываем соединение при размонтировании компонента
-            return () => {
-                stompClient.disconnect(() => {
-                    console.log("disconnected");
-                });
-            };
-        });
-    }, [lobbies]);*/
-
     const createLobby = () => {
         const tempData = {
-            creatorId: "65c7ed9f9fc6800c8f1c05c2",
+            creatorId: "65c666dbc08b5a5f3dd084f1",
             bet: 1000,
             title: "JOPA",
         }
@@ -80,17 +55,27 @@ const LobbyList:React.FC = () => {
     return (
         <div className="container">
             <div className="under-container">
-                <div className="lobby-list">
-                    {lobbies && lobbies.map((lobby) => (
-                        <LobbyItem key={lobby.id} id={lobby.id}
-                                   bet={lobby.bet}
-                                   creatorUsername={lobby.creatorUsername}
-                                   elo={lobby.creatorElo}
-                                   title={lobby.title}
-                        />
-                    ))
-                    }
-                </div>
+                <TableContainer component={Paper}>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Bet</TableCell>
+                                <TableCell>Title</TableCell>
+                                <TableCell>Creator Username</TableCell>
+                                <TableCell>Elo</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        {lobbies && lobbies.map((lobby) => (
+                            <LobbyItem key={lobby.id} id={lobby.id}
+                                       bet={lobby.bet}
+                                       creatorUsername={lobby.creatorUsername}
+                                       elo={lobby.creatorElo}
+                                       title={lobby.title}
+                            />
+                        ))
+                        }
+                    </Table>
+                </TableContainer>
                 <button onClick={createLobby}>create lobby</button>
             </div>
         </div>

@@ -12,6 +12,7 @@ import UsedTech from "./components/pages/UsedTech.tsx";
 import Layout from "./components/pages/auth/Layout.tsx";
 import LobbyList from "./components/game-components/LobbyList.tsx";
 
+
 function App() {
     const location = useLocation();
   return (
