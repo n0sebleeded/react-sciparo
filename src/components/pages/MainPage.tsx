@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import {Link} from "react-router-dom";
 
 const MainPage = () => {
+
     const vertical = {
         initial: { opacity: 0, y: 100 },
         animate: { opacity: 1, y: 0 },
@@ -20,6 +21,26 @@ const MainPage = () => {
         animate: { opacity: 1 },
         exit: { opacity: 0 },
     }
+
+    /*useEffect(() => {
+        const socket = new SockJS('http://192.168.0.103:8080/ws');
+        const stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function () {
+            stompClient.subscribe('/topic/kek', function (message) {
+                console.log('Received message from server:', message);
+            });
+
+            // Отправка сообщения
+            stompClient.send('/app/sendKek', {}, 'Hello, WebSocket from Stomp!');
+
+        });
+
+        // Отключение сокета при размонтировании компонента
+        return () => {
+            socket.close();
+        };
+    }, []);*/
 
     return (
         <div className="main-container">

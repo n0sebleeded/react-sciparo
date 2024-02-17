@@ -8,6 +8,9 @@ import {IRootStateCard} from "../../redux/actionTypes.ts";
 
 //FIXME: mouse cursor:pointer
 //FIXME: selected card on resize
+
+window.global ||= window;
+
 const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
     const [cardState, setCardState] = useState({
         isAnimating: false,
@@ -49,6 +52,16 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
     };
 
     const ref = useRef<HTMLDivElement | null>(null);
+
+/*    useEffect(() => {
+        fetch('http://192.168.0.103:8080/lobby/getAll')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => console.error('Error:', error));
+        console.log("жопа");
+    }, []);*/
 
     useEffect(() => {
         setCardState(prevState => ({ ...prevState, cardCords: getCardCords(ref.current) }));
@@ -94,8 +107,11 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
             dragConstraints={{ top: 0, bottom: 0, left: 0, right: 0 }}
             key={id}
             onClick={!Hidden ? handleClick : undefined}
-            onMouseEnter={() => setCardState(prevState =>
-                ({ ...prevState, isHovering: true }))}
+            onMouseEnter={() => {
+                setCardState(prevState =>
+                    ({ ...prevState, isHovering: true }))
+                console.log(id);
+            }}
             onMouseLeave={() => setCardState(prevState =>
                 ({ ...prevState, isHovering: false }))}
             style={cardStyle}
