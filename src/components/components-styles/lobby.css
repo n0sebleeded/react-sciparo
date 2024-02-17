@@ -32,3 +32,9 @@
     content: "";
 }
 
+.no-lobby-text {
+    margin-top: 10rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    color: white;
+}

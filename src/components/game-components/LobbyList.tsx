@@ -9,7 +9,6 @@ import {Container, Paper, Table, TableCell, TableContainer, TableHead, TableRow}
 import ButtonSty from '../styled-components/ButtonSty.ts';
 import ContainerSty from "../styled-components/ContainerSty.ts";
 
-//TODO: websocket --> long pooling?
 const LobbyList:React.FC = () => {
 
     const [lobbies, setLobbies] = useState<ILobby[] | null>(null)
@@ -57,30 +56,35 @@ const LobbyList:React.FC = () => {
     return (
         <div className="container">
             <div className="under-container">
-                <ContainerSty>
-                    <TableContainer component={Paper}>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>Bet</TableCell>
-                                    <TableCell>Title</TableCell>
-                                    <TableCell>Creator Username</TableCell>
-                                    <TableCell>Elo</TableCell>
-                                    <TableCell></TableCell>
-                                </TableRow>
-                            </TableHead>
-                            {lobbies && lobbies.map((lobby) => (
-                                <LobbyItem key={lobby.id} id={lobby.id}
-                                           bet={lobby.bet}
-                                           creatorUsername={lobby.creatorUsername}
-                                           elo={lobby.creatorElo}
-                                           title={lobby.title}
-                                />
-                            ))
-                            }
-                        </Table>
-                    </TableContainer>
-                </ContainerSty>
+                {
+                    lobbies && lobbies.length
+                    ?  <ContainerSty>
+                            <TableContainer component={Paper}>
+                                <Table>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Bet</TableCell>
+                                            <TableCell>Title</TableCell>
+                                            <TableCell>Creator Username</TableCell>
+                                            <TableCell>Elo</TableCell>
+                                            <TableCell></TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    {
+                                        lobbies.map((lobby) => (
+                                            <LobbyItem key={lobby.id} id={lobby.id}
+                                                       bet={lobby.bet}
+                                                       creatorUsername={lobby.creatorUsername}
+                                                       elo={lobby.creatorElo}
+                                                       title={lobby.title}
+                                            />
+                                        ))
+                                    }
+                                </Table>
+                            </TableContainer>
+                        </ContainerSty>
+                    : <p className="no-lobby-text">There is no lobby yet</p>
+                }
                 <Container>
                     <ButtonSty onClick={createLobby}>Create lobby</ButtonSty>
                 </Container>
