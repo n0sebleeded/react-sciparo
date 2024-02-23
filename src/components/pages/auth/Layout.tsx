@@ -16,6 +16,7 @@ const Layout = () => {
     });
     const login = useSelector((state:IRootStateLogin) => state.LogIn.login);
     //FIXME: rotate hand-emoji
+    //FIXME: rerender on button submit
     return (
         <>
             {showNotification.state &&
@@ -29,8 +30,8 @@ const Layout = () => {
             >
                 <AnimatePresence mode="wait">
                     {login
-                        ? <Login key={uuid()}></Login>
-                        : <Register key={uuid()} setShowNotification={setShowNotification}></Register>
+                        ? <Login key={uuid()} setShowNotification={setShowNotification} />
+                        : <Register key={uuid()} setShowNotification={setShowNotification} />
                     }
                 </AnimatePresence>
             </motion.div>

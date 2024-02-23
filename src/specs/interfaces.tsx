@@ -1,4 +1,4 @@
-import React from "react";
+import React, {SetStateAction} from "react";
 
 /*
 export interface ICard extends ICardGroup{
@@ -53,7 +53,9 @@ export interface INotificationProp {
 }
 
 export interface IForm {
-    login?: boolean,
+    login?: boolean;
+    setData?: React.Dispatch<SetStateAction<ILogData>>;
+    data: ILogData;
     register:UseFormRegister<IFormData> | null
 }
 
@@ -71,4 +73,9 @@ export enum ICardType {
     CARD_PAPER = "CARD_PAPER",
     CARD_SCISSOR = "CARD_SCISSOR",
     CARD_ROCK = "CARD_ROCK"
+}
+
+export interface ILogData {
+    username: string;
+    password: string;
 }

@@ -1,12 +1,23 @@
 import React from "react";
 import {IForm} from "../../../../specs/interfaces.tsx";
 
-const PasswordForm:React.FC<IForm> = ({login, register}) => {
+const PasswordForm:React.FC<IForm> = ({login, setData, data, register}) => {
+
+    const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        if (setData) {
+            setData({
+                ...data,
+                password: e.target.value
+            })
+        }
+    }
+
     return (
         <div className="password-field">
             <p>Password</p>
             {login
-                ? <input className="inp-format" type="text" id="passwordText-login"/>
+                ? <input className="inp-format" type="text" onChange={handleChange} id="passwordText-login"/>
                 : <input className="inp-format" type="text"
                          id="passwordText" {...register ? register("passwordText", {
                     required: "This field is required",

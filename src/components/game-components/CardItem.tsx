@@ -53,16 +53,6 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
 
     const ref = useRef<HTMLDivElement | null>(null);
 
-/*    useEffect(() => {
-        fetch('http://192.168.0.103:8080/lobby/getAll')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => console.error('Error:', error));
-        console.log("жопа");
-    }, []);*/
-
     useEffect(() => {
         setCardState(prevState => ({ ...prevState, cardCords: getCardCords(ref.current) }));
     }, [ref]);
