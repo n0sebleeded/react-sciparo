@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { useDispatch, useSelector } from 'react-redux';
-import {resetSelectedCard, setSelectedCard} from "../../redux/reducers/cardSelectSlice.ts";
+import { useSelector } from 'react-redux';
 import { ICard, ICardType, ICords } from "../../specs/interfaces.tsx";
 import '../components-styles/card.css';
 import {IRootStateCard} from "../../redux/actionTypes.ts";
@@ -11,10 +10,9 @@ import {IRootStateCard} from "../../redux/actionTypes.ts";
 
 window.global ||= window;
 
-const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
+const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type, stompClient }) => {
     const [cardState, setCardState] = useState({
         isAnimating: false,
-        isHovering: false,
         cardCords: { x: 0, y: 0 },
     });
 
@@ -36,32 +34,24 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
              src={`../../src/assets/${type.toLowerCase()}.svg`}
              alt={type.toLowerCase()} />
     );
-    const dispatch = useDispatch();
     const selectedCard = useSelector((state: IRootStateCard) => state.selectedCard.selectedCard);
+    const hoveredCard = useSelector((state: IRootStateCard) => state.selectedCard.hoveredCard);
 
     const isClicked = selectedCard === id;
 
     const handleClick = () => {
         if (selectedCard === null) {
-            const selectedCard = id;
-            dispatch(setSelectedCard({selectedCard}));
-        } else if (isClicked) {
-            dispatch(resetSelectedCard());
-            setCardState(prevState => ({ ...prevState, isHovering: false }));
+            const obj = { selectedCard: id }
+            if (stompClient) {
+                stompClient.send('/topic/testing', {}, JSON.stringify(obj));
+            }
+        } else if (stompClient) {
+            const obj = { selectedCard: null }
+            stompClient.send('/topic/testing', {}, JSON.stringify(obj));
         }
     };
 
     const ref = useRef<HTMLDivElement | null>(null);
-
-/*    useEffect(() => {
-        fetch('http://192.168.0.103:8080/lobby/getAll')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => console.error('Error:', error));
-        console.log("жопа");
-    }, []);*/
 
     useEffect(() => {
         setCardState(prevState => ({ ...prevState, cardCords: getCardCords(ref.current) }));
@@ -94,6 +84,20 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
         transform: cardState.isAnimating ? 'none' : '',
     };
 
+    const onMouseEnter = () => {
+        const obj = {hoveredCard: id, selectedCard: selectedCard};
+        if (stompClient) {
+            stompClient.send('/topic/testing', {}, JSON.stringify(obj));
+        }
+    }
+
+    const onMouseLeave = () => {
+        const obj = {hoveredCard: null, selectedCard: selectedCard};
+        if (stompClient) {
+            stompClient.send('/topic/testing', {}, JSON.stringify(obj));
+        }
+    }
+
     return (
         <motion.div
             ref={ref}
@@ -101,27 +105,22 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type }) => {
             drag={!Hidden && !isClicked}
             animate={{
                 x: isClicked && !Hidden ? centerCoords.x - cardState.cardCords.x : 0,
-                y: isClicked && !Hidden ? centerCoords.y - cardState.cardCords.y : cardState.isHovering && !Hidden ? "-40px" : 0,
+                y: isClicked && !Hidden ? centerCoords.y - cardState.cardCords.y : hoveredCard === id && !Hidden ? "-40px" : 0,
             }}
             transition={{ type: "spring", duration: 0.05 }}
             dragConstraints={{ top: 0, bottom: 0, left: 0, right: 0 }}
             key={id}
             onClick={!Hidden ? handleClick : undefined}
-            onMouseEnter={() => {
-                setCardState(prevState =>
-                    ({ ...prevState, isHovering: true }))
-                console.log(id);
-            }}
-            onMouseLeave={() => setCardState(prevState =>
-                ({ ...prevState, isHovering: false }))}
+            onMouseEnter={() => onMouseEnter()}
+            onMouseLeave={() => onMouseLeave()}
             style={cardStyle}
         >
             {!Hidden && (
                 <motion.div className="card_item"
-                    initial={{opacity: 0, y: 100}}
-                    animate={{opacity: 1, y: 0}}
-                    exit={{opacity: 0, y:-100}}
-                    transition={{duration: 1, type: "spring"}}
+                            initial={{opacity: 0, y: 100}}
+                            animate={{opacity: 1, y: 0}}
+                            exit={{opacity: 0, y:-100}}
+                            transition={{duration: 1, type: "spring"}}
                 >
                     {renderCardImage(Type)}
                     <p className="card_text">{Text}</p>

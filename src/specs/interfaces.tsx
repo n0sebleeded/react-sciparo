@@ -1,4 +1,4 @@
-import React from "react";
+import React, {SetStateAction} from "react";
 
 /*
 export interface ICard extends ICardGroup{
@@ -12,6 +12,7 @@ export interface ICardGroup {
 
 import {ReactNode} from "react";
 import {UseFormRegister} from "react-hook-form";
+import Stomp from "stompjs";
 
 export interface ILobby {
     "id":string
@@ -35,7 +36,8 @@ export interface ICard {
     id: number,
     Text: string,
     Hidden: boolean,
-    Type:ICardType
+    Type:ICardType,
+    stompClient?: Stomp.Client
 }
 
 export interface ICords {
@@ -53,7 +55,9 @@ export interface INotificationProp {
 }
 
 export interface IForm {
-    login?: boolean,
+    login?: boolean;
+    setData?: React.Dispatch<SetStateAction<ILogData>> | null;
+    data: ILogData | null;
     register:UseFormRegister<IFormData> | null
 }
 
@@ -71,4 +75,17 @@ export enum ICardType {
     CARD_PAPER = "CARD_PAPER",
     CARD_SCISSOR = "CARD_SCISSOR",
     CARD_ROCK = "CARD_ROCK"
+}
+
+export interface ILogData {
+    username: string;
+    password: string;
+}
+
+export interface ICardItemProps {
+    id: number;
+    Text: string;
+    Hidden: boolean;
+    Type: ICardType;
+    stompClient: Stomp.Client; // Assuming stompClient is optional
 }

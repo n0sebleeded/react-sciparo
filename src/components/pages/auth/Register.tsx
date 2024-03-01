@@ -16,13 +16,17 @@ import {IRootStateLogin} from "../../../redux/actionTypes.ts";
 // ... (imports and styles)
 
 const Register:React.FC<INotificationProp> = ({setShowNotification}) => {
+    const SERVER_PORT = import.meta.env.VITE_REACT_APP_SERVER_PORT
+    const SERVER_IP = import.meta.env.VITE_REACT_APP_SERVER_IP;
+
     const { register, handleSubmit, formState: { errors }} = useForm<IFormData>();
     const nav = useNavigate();
     const login = useSelector((state:IRootStateLogin) => state.LogIn.login);
 
     const onSubmit = (data:IFormData) => {
+        console.log(data)
         axios.post(
-                'http://192.168.0.103:8080/players/create', data,
+                `${SERVER_IP}:${SERVER_PORT}/players/new`, data,
                 { headers: { 'Content-Type': 'application/json' }}
             )
             .then((response: {data: IFormData}) => {
@@ -37,8 +41,7 @@ const Register:React.FC<INotificationProp> = ({setShowNotification}) => {
                 }, 2000);
             })
             .catch((error: {data: IFormData}) => {
-                console.log(error.data)
-                console.log("errorTest")
+                console.log(error)
                 setShowNotification({
                     state:true,
                     success:false
@@ -55,17 +58,17 @@ const Register:React.FC<INotificationProp> = ({setShowNotification}) => {
                         <div className="welcome">
                             <Greeting login={false} />
                         </div>
-                        <UsernameForm login={false} register={register} />
+                        <UsernameForm login={false} register={register} data={null} setData={null}/>
                         {
                             errors.username?.message &&
                             <p className="error-box">{errors.username?.message}</p>
                         }
-                        <PasswordForm login={false} register={register} />
+                        <PasswordForm login={false} register={register} data={null} setData={null}/>
                         {
                             errors.passwordText?.message &&
                             <p className="error-box">{errors.passwordText?.message}</p>
                         }
-                        <EmailForm register={register}/>
+                        <EmailForm register={register} data={null} setData={null}/>
                         {
                             errors.email?.message && !login &&
                             <p className="error-box">{errors.email?.message}</p>

@@ -1,12 +1,23 @@
 import React from "react";
 import {IForm} from "../../../../specs/interfaces.tsx";
 
-const UsernameForm:React.FC<IForm> = ({login, register}) => {
+const UsernameForm:React.FC<IForm> = ({login, setData, data, register}) => {
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        if (setData && data) {
+            setData({
+                ...data,
+                username: e.target.value
+            })
+        }
+    };
+
     return (
         <div className="login-field">
             <p>Username</p>
             {login
-                ? <input className="inp-format" type="text" id="username-login"/>
+                ? <input className="inp-format" value={data?.username} onChange={handleChange} type="text" id="username-login"/>
                 : <input className="inp-format" type="text" id="username" {...register ? register("username", {
                     required: "This is a required value",
                     minLength: {

@@ -5,7 +5,7 @@ import LoginReduces from "./reducers/loginSlice.ts";
 const store = configureStore({
     reducer: {
         selectedCard: selectCardReducer,
-        LogIn: LoginReduces
+        LogIn: LoginReduces,
     }
 });
 
