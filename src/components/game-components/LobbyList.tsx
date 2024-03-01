@@ -32,8 +32,8 @@ const LobbyList:React.FC = () => {
 
 
         stompClient.connect({}, () => {
-            stompClient.send('/app/lobbies/list');
             stompClient.subscribe('/topic/lobby', handleSubscription);
+            stompClient.send('/app/lobbies/list');
         });
 
         // Закрываем подключение при размонтировании компонента

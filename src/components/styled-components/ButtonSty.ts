@@ -1,6 +1,5 @@
 import {Button, styled} from "@mui/material";
 
-//TODO: REDESIGN
 const ButtonSty = styled(Button)(({theme}) => ({
     fontSize: '18pt',
     fontWeight: 'lighter',

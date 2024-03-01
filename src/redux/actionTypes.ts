@@ -1,14 +1,17 @@
 export interface ICardsState {
-    selectedCard: number | null;
+    selectedCard?: number | null;
+    hoveredCard?: number | null;
 }
 
 export const initialState:ICardsState = {
-    selectedCard: null
+    selectedCard: null,
+    hoveredCard: null
 }
 
 export interface IRootStateCard {
     selectedCard: {
         selectedCard: number | null
+        hoveredCard: number | null
     }
 }
 

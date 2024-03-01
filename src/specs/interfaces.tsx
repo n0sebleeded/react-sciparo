@@ -12,6 +12,7 @@ export interface ICardGroup {
 
 import {ReactNode} from "react";
 import {UseFormRegister} from "react-hook-form";
+import Stomp from "stompjs";
 
 export interface ILobby {
     "id":string
@@ -35,7 +36,8 @@ export interface ICard {
     id: number,
     Text: string,
     Hidden: boolean,
-    Type:ICardType
+    Type:ICardType,
+    stompClient?: Stomp.Client
 }
 
 export interface ICords {
@@ -78,4 +80,12 @@ export enum ICardType {
 export interface ILogData {
     username: string;
     password: string;
+}
+
+export interface ICardItemProps {
+    id: number;
+    Text: string;
+    Hidden: boolean;
+    Type: ICardType;
+    stompClient: Stomp.Client; // Assuming stompClient is optional
 }
