@@ -1,9 +1,10 @@
 import {Container, styled} from "@mui/material";
 
-const ContainerSty = styled(Container)(() => ({
+const ContainerStyButton = styled(Container)(() => ({
     overflow: 'hidden',
     display: 'flex',
     justifyContent: 'center',
+    marginTop: '20px',
 }))
 
-export default ContainerSty;
+export default ContainerStyButton;

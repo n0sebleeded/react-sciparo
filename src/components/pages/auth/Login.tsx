@@ -13,6 +13,9 @@ import {useNavigate} from "react-router-dom";
 // ... (imports and styles)
 
 const Login:React.FC<INotificationProp> = ({setShowNotification}) => {
+    const SERVER_PORT = import.meta.env.VITE_REACT_APP_SERVER_PORT;
+    const SERVER_IP = import.meta.env.VITE_REACT_APP_SERVER_IP;
+
 
     const [logData, setData] = useState<ILogData>({
         username: '',
@@ -24,12 +27,8 @@ const Login:React.FC<INotificationProp> = ({setShowNotification}) => {
     const onSubmit:React.FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
         console.log(logData);
-        setShowNotification({
-            state: true,
-            success: true
-        });
         axios.post(
-            'http://192.168.0.103:8080/players/...', logData,
+            `${SERVER_IP}:${SERVER_PORT}/players/...`, logData,
             { headers: { 'Content-Type': 'application/json' }}
         )
             .then((response: {data: ILogData}) => {
@@ -44,8 +43,7 @@ const Login:React.FC<INotificationProp> = ({setShowNotification}) => {
                 }, 2000);
             })
             .catch((error: {data: ILogData}) => {
-                console.log(error.data)
-                console.log("errorTest")
+                console.log(error)
                 setShowNotification({
                     state:true,
                     success:false

@@ -15,6 +15,7 @@ export const theme = createTheme({
         },
         secondary: {
             main: '#242424',
+            light: "#797979",
             dark: '#1A1A1A',
         },
     },
@@ -32,6 +33,13 @@ export const theme = createTheme({
                 }
             }
         },
+        /*MuiTableContainer: {
+            styleOverrides: {
+                root: {
+                    overflow: "hidden"
+                }
+            }
+        },*/
         MuiButton: {
             styleOverrides: {
                 root: {

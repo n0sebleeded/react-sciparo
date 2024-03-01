@@ -54,8 +54,8 @@ export interface INotificationProp {
 
 export interface IForm {
     login?: boolean;
-    setData?: React.Dispatch<SetStateAction<ILogData>>;
-    data: ILogData;
+    setData?: React.Dispatch<SetStateAction<ILogData>> | null;
+    data: ILogData | null;
     register:UseFormRegister<IFormData> | null
 }
 
