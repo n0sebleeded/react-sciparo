@@ -49,6 +49,37 @@
     filter: hue-rotate(-10deg);
 }
 
+@media screen and (max-width: 1152px) {
+    .rightside-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 75vw;
+        justify-content: center;
+        align-items: center;
+    }
+    .leftside-container {
+        display: flex;
+        flex-direction: row;
+        max-width: 75vw;
+        align-items: center;
+    }
+    .sub-text {
+        font-size: 22pt;
+        color: honeydew;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: lighter;
+        line-height: 2rem;
+        text-align: center;
+    }
+    .sub-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 95vh;
+    }
+}
+
 .img {
     height: 8em;
 }
