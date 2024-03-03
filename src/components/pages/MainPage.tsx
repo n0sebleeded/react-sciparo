@@ -23,26 +23,6 @@ const MainPage = () => {
         exit: { opacity: 0 },
     }
 
-    /*useEffect(() => {
-        const socket = new SockJS('http://192.168.0.103:8080/ws');
-        const stompClient = Stomp.over(socket);
-
-        stompClient.connect({}, function () {
-            stompClient.subscribe('/topic/kek', function (message) {
-                console.log('Received message from server:', message);
-            });
-
-            // Отправка сообщения
-            stompClient.send('/app/sendKek', {}, 'Hello, WebSocket from Stomp!');
-
-        });
-
-        // Отключение сокета при размонтировании компонента
-        return () => {
-            socket.close();
-        };
-    }, []);*/
-
     return (
         <ContainerSty>
             <div className="main-container">

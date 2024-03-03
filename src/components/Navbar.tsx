@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import './components-styles/rootLayout.css'
 import NavbarContainer from "./styled-components/NavbarContainer.ts";
+import NavbarBurger from "./styled-components/NanbarBurger.ts";
 
 const Navbar = () => {
     const vertical = {
@@ -44,6 +45,9 @@ const Navbar = () => {
                     </Link>
                 </div>
             </NavbarContainer>
+            <NavbarBurger>
+                ≡
+            </NavbarBurger>
         </motion.div>
     );
 };
