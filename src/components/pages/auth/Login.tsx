@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import '../../components-styles/login-register.css'
 import '../../components-styles/btn.css'
-import {motion} from 'framer-motion';
 import GifContainer from "./GifContainer.tsx";
 import Greeting from "./Greeting.tsx";
 import UsernameForm from "./form/UsernameForm.tsx";
@@ -52,7 +51,7 @@ const Login:React.FC<INotificationProp> = ({setShowNotification}) => {
     };
 
     return (
-        <motion.div className="gif-and-login-box">
+        <div className="gif-and-login-box">
             <form className="login-box" onSubmit={onSubmit}>
                 <div className="form">
                     <div className="scale-changer">
@@ -68,7 +67,7 @@ const Login:React.FC<INotificationProp> = ({setShowNotification}) => {
                 </div>
             </form>
             <GifContainer />
-        </motion.div>
+        </div>
     );
 };
 

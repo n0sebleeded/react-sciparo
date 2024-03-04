@@ -7,7 +7,7 @@ import RootLayout from "./components/RootLayout.tsx";
 import {AnimatePresence} from "framer-motion";
 import Navbar from "./components/Navbar.tsx";
 import Idea from "./components/pages/Idea.tsx";
-import AboutUs from "./components/pages/AboutUs.tsx";
+import AboutUs from "./components/pages/aboutUs/AboutUs.tsx";
 import UsedTech from "./components/pages/UsedTech.tsx";
 import Layout from "./components/pages/auth/Layout.tsx";
 import LobbyList from "./components/game-components/LobbyList.tsx";

@@ -12,6 +12,17 @@
     font-weight: lighter;
 }
 
+@media only screen and (max-width: 1024px) {
+    .leftside-container-about, .rightside-container-about {
+        display: flex;
+        flex-direction: column;
+        width: 85vw;
+        justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: lighter;
+    }
+}
+
 .about-text {
     display: flex;
     justify-content: space-around;

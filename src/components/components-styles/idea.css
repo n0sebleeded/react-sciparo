@@ -4,6 +4,7 @@
     font-size: 24pt;
     font-weight: lighter;
     z-index: 5;
+    position: relative;
 }
 
 .idea-container {

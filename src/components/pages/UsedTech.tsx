@@ -1,6 +1,8 @@
 import {motion} from "framer-motion";
 import '../components-styles/aboutUs.css'
 import '../components-styles/usedTech.css'
+import {Typography} from "@mui/material";
+import AnimatedDiv from "../AnimatedDiv.tsx";
 
 const UsedTech = () => {
     const horizontal = {
@@ -21,15 +23,13 @@ const UsedTech = () => {
     return (
         <div className="about-main-container">
             <div className="sub-container">
-                <motion.div className="leftside-container-about" variants={horizontal}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            transition={{duration: 1.5, delay: 0.5, type: "spring"}}
-                >
-                    <h1 className="about-name">
+                <AnimatedDiv className="leftside-container-about" variant={horizontal} transition={{duration: 1.5, delay: 0.5, type: "spring"}}>
+                    <Typography sx={{
+                        fontSize: "4rem",
+                        fontWeight: "bold"
+                    }} className="about-name">
                         Back-end
-                    </h1>
+                    </Typography>
                     <p className="about-text">
                         <motion.ul
                             exit={{opacity: 0}}
@@ -47,16 +47,14 @@ const UsedTech = () => {
                             ))}
                         </motion.ul>
                     </p>
-                </motion.div>
-                <motion.div className="rightside-container-about" variants={horizontalInvert}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            transition={{duration: 1.5, delay: 0.5, type: "spring"}}
-                >
-                    <h1 className="about-name">
+                </AnimatedDiv>
+                <AnimatedDiv className="rightside-container-about" variant={horizontalInvert} transition={{duration: 1.5, delay: 0.5, type: "spring"}}>
+                    <Typography sx={{
+                        fontSize: "4rem",
+                        fontWeight: "bold"
+                    }} className="about-name">
                         Front-end
-                    </h1>
+                    </Typography>
                     <p className="about-text">
                         <motion.ul
                             exit={{opacity: 0}}
@@ -74,7 +72,7 @@ const UsedTech = () => {
                             ))}
                         </motion.ul>
                     </p>
-                </motion.div>
+                </AnimatedDiv>
             </div>
         </div>
     );

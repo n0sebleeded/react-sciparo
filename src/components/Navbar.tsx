@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import './components-styles/rootLayout.css'
 import NavbarContainer from "./styled-components/NavbarContainer.ts";
 import NavbarBurger from "./styled-components/NanbarBurger.ts";
+import AnimatedDiv from "./AnimatedDiv.tsx";
 
 const Navbar = () => {
     const vertical = {
@@ -11,12 +12,7 @@ const Navbar = () => {
         exit: { y: 100 } ,
     };
     return (
-        <motion.div className="navbar" variants={vertical}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    transition={{duration: 1.5, type: "spring", delay: 1}}
-        >
+        <AnimatedDiv className="navbar" variant={vertical} transition={{duration: 1.5, type: "spring", delay: 1}}>
             <NavbarContainer>
                 <div className="navbar-item-set">
                     <Link to="/">
@@ -48,7 +44,7 @@ const Navbar = () => {
             <NavbarBurger>
                 ≡
             </NavbarBurger>
-        </motion.div>
+        </AnimatedDiv>
     );
 };
 

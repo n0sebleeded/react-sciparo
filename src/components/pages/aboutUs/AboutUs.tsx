@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import '../components-styles/aboutUs.css'
+import '../../components-styles/aboutUs.css'
+import AnimatedDiv from "../../AnimatedDiv.tsx";
 const AboutUs = () => {
     const horizontal = {
         initial: { opacity: 0, x: 100 },
@@ -24,12 +25,7 @@ const AboutUs = () => {
     return (
         <div className="about-main-container">
             <div className="sub-container">
-                <motion.div className="leftside-container-about" variants={horizontal}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            transition={{duration: 1.5, delay: 0.5, type: "spring"}}
-                >
+                <AnimatedDiv className="leftside-container-about" variant={horizontal} transition={{duration: 1.5, delay: 0.5, type: "spring"}}>
                     <div className="user-logo-container">
                         <motion.img className="user-logo" src="../../src/assets/logos/userlogo.png" alt="user1" whileTap={{scale: 0.9}}/>
                     </div>
@@ -39,10 +35,10 @@ const AboutUs = () => {
                     <p className="about-text">C# ASP.NET / Java Spring developer</p>
                     <div className="logo-container-v">
                         <motion.a href="https://github.com/sabexzero" whileTap={{scale: 0.8}}>
-                            <img className="logo-g" src="../../../src/assets/logos/github.png" alt="git"/>
+                            <img className="logo-g" src="../../../assets/logos/github.png" alt="git"/>
                         </motion.a>
                         <motion.a href="https://t.me/sa666ex" whileTap={{scale: 0.8}}>
-                            <img className="logo" src="../../../src/assets/logos/telegram.png" alt="telegram"/>
+                            <img className="logo" src="../../../assets/logos/telegram.png" alt="telegram"/>
                         </motion.a>
                     </div>
                     <div className="contact">
@@ -63,13 +59,8 @@ const AboutUs = () => {
                             ))}
                         </div>
                     </div>
-                </motion.div>
-                <motion.div className="rightside-container-about" variants={horizontalInvert}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            transition={{duration: 1.5, delay: 0.5, type: "spring"}}
-                >
+                </AnimatedDiv>
+                <AnimatedDiv className="rightside-container-about" variant={horizontalInvert} transition={{duration: 1.5, delay: 0.5, type: "spring"}}>
                     <div className="user-logo-container">
                         <motion.div whileTap={{scale: 0.9}}>
                             <img className="user-logo-d" src="../../src/assets/logos/userlogo.png" alt="user1"/>
@@ -81,10 +72,10 @@ const AboutUs = () => {
                     <p className="about-text">React JS/TS Frontend developer</p>
                     <div className="logo-container">
                         <motion.a href="https://github.com/n0sebleeded" whileTap={{scale: 0.8}}>
-                            <img className="logo-g" src="../../../src/assets/logos/github.png" alt="git"/>
+                            <img className="logo-g" src="../../../assets/logos/github.png" alt="git"/>
                         </motion.a>
                         <motion.a href="https://t.me/tonyredgrave" whileTap={{scale: 0.8}}>
-                            <img className="logo" src="../../../src/assets/logos/telegram.png" alt="telegram"/>
+                            <img className="logo" src="../../../assets/logos/telegram.png" alt="telegram"/>
                         </motion.a>
                     </div>
                     <div className="contact">
@@ -105,7 +96,7 @@ const AboutUs = () => {
                             ))}
                         </div>
                     </div>
-                </motion.div>
+                </AnimatedDiv>
             </div>
         </div>
     )

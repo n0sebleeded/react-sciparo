@@ -13,6 +13,7 @@ export interface ICardGroup {
 import {ReactNode} from "react";
 import {UseFormRegister} from "react-hook-form";
 import Stomp from "stompjs";
+import {Transition, Variants} from "framer-motion";
 
 export interface ILobby {
     "id":string
@@ -88,4 +89,12 @@ export interface ICardItemProps {
     Hidden: boolean;
     Type: ICardType;
     stompClient: Stomp.Client; // Assuming stompClient is optional
+}
+
+
+export interface IAnimatedDiv {
+    children: React.ReactNode;
+    variant: Variants | undefined;
+    transition: Transition | undefined;
+    className?: string;
 }
