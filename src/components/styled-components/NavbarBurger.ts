@@ -4,7 +4,8 @@ const NavbarBurger = styled(Container)(() => ({
     overflow: 'hidden',
     display: 'flex',
     justifyContent: 'flex-start',
-    fontSize: "3rem",
+    fontSize: "2rem",
+    zIndex: "110",
 
     '@media (min-width: 730px)': {
         display: "none",
