@@ -5,6 +5,8 @@ import NavbarContainer from "./styled-components/NavbarContainer.ts";
 import NavbarBurger from "./styled-components/NanbarBurger.ts";
 import AnimatedDiv from "./AnimatedDiv.tsx";
 
+
+//TODO: FIX NAVBAR ON HEIGHT-RESIZE
 const Navbar = () => {
     const vertical = {
         initial: { y: -100 },

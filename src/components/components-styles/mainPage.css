@@ -74,12 +74,18 @@
     .sub-container {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         align-items: center;
-        height: 95vh;
+    }
+    @media screen and (min-height: 572px) {
+        .sub-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
     }
 }
-
 .img {
     height: 8em;
 }

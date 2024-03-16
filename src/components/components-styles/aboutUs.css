@@ -16,7 +16,7 @@
     .leftside-container-about, .rightside-container-about {
         display: flex;
         flex-direction: column;
-        width: 85vw;
+        width: 90vw;
         justify-content: center;
         font-family: 'Montserrat', sans-serif;
         font-weight: lighter;

@@ -2,7 +2,16 @@
     height: 95vh;
     margin: 0 auto;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
+}
+
+@media only screen and (max-width: 720px)  {
+    .outlet-container {
+        height: auto;
+        margin: 0 auto;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
 }
 
 .navbar {
