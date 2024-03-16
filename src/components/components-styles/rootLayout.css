@@ -1,5 +1,5 @@
 .outlet-container {
-    height: 95vh;
+    calc(100vh - 52px);
     margin: 0 auto;
     overflow-x: hidden;
     overflow-y: auto;
@@ -23,7 +23,7 @@
     font-weight: bold;
     align-items: center;
     background-color: #1a1a1a;
-    height: 5vh;
+    height: 52px;
 }
 
 .navbar-item-set {

@@ -30,8 +30,9 @@ const RightSideContainer:React.FC = () => {
                 </AnimatedDiv>
             </div>
             <AnimatedDiv variant={fade} transition={{duration: 2, delay: 0}}>
+                <p className="sub-text"><span className="temp-1">Welcome to RPS🥳 .</span></p>
                 <p className="sub-text">
-                    Welcome to RPS🥳 .
+
                     RPS is a unique platform for playing an unusual form of the well-known game - rock paper
                     scissors.
                     In order to play with other players or your friends you need to <Link to="/register"

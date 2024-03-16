@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     width: 100vw;
-    height: 95vh;
+    height: calc(100vh - 52px);
         justify-content: center;
     align-items: center;
     color: #ffd500;
