@@ -1,3 +1,23 @@
 .tech-item {
     margin: 1vh 0;
 }
+
+.tech-text {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    color: whitesmoke;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .tech-text {
+        display: flex;
+        justify-content: space-around;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: lighter;
+        color: whitesmoke;
+        font-size: 1.1rem;
+    }
+}

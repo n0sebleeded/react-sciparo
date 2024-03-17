@@ -23,7 +23,7 @@ const RootLayout:React.FC = () => {
         <>
             <AnimatePresence mode="wait">
                 {isOpen &&
-                    <AnimatedDiv className="burger-open-container" variant={vertical} transition={{duration: 1.5, type: "spring", delay: 0}}>
+                    <AnimatedDiv className="burger-open-container" variant={vertical} transition={{duration: 1, ease: "anticipate", delay: 0}}>
                         <OpenBurger />
                     </AnimatedDiv>
                 }

@@ -1,10 +1,13 @@
 import {motion} from "framer-motion";
 import '../components-styles/aboutUs.css'
 import '../components-styles/usedTech.css'
-import {Typography} from "@mui/material";
+import {Typography, useMediaQuery, useTheme} from "@mui/material";
 import AnimatedDiv from "../AnimatedDiv.tsx";
 
 const UsedTech = () => {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
     const horizontal = {
         initial: { opacity: 0, x: 100 },
         animate: { opacity: 1, x: 0 },
@@ -25,12 +28,12 @@ const UsedTech = () => {
             <div className="sub-container">
                 <AnimatedDiv className="leftside-container-about" variant={horizontal} transition={{duration: 1.5, delay: 0.5, type: "spring"}}>
                     <Typography sx={{
-                        fontSize: "4rem",
+                        fontSize: isSmallScreen ? "2rem" : "4rem",
                         fontWeight: "bold"
                     }} className="about-name">
                         Back-end
                     </Typography>
-                    <p className="about-text">
+                    <p className="tech-text">
                         <motion.ul
                             exit={{opacity: 0}}
                             transition={{duration: 1}}
@@ -50,12 +53,12 @@ const UsedTech = () => {
                 </AnimatedDiv>
                 <AnimatedDiv className="rightside-container-about" variant={horizontalInvert} transition={{duration: 1.5, delay: 0.5, type: "spring"}}>
                     <Typography sx={{
-                        fontSize: "4rem",
+                        fontSize: isSmallScreen ? "2rem" : "4rem",
                         fontWeight: "bold"
                     }} className="about-name">
                         Front-end
                     </Typography>
-                    <p className="about-text">
+                    <p className="tech-text">
                         <motion.ul
                             exit={{opacity: 0}}
                             transition={{duration: 1}}
