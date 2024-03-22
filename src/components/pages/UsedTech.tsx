@@ -1,8 +1,15 @@
 import {motion} from "framer-motion";
 import '../components-styles/aboutUs.css'
 import '../components-styles/usedTech.css'
+import {Typography, useMediaQuery, useTheme} from "@mui/material";
+import AnimatedDiv from "../AnimatedDiv.tsx";
+
+//TODO: DECOMPOSE
 
 const UsedTech = () => {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
     const horizontal = {
         initial: { opacity: 0, x: 100 },
         animate: { opacity: 1, x: 0 },
@@ -15,22 +22,20 @@ const UsedTech = () => {
         exit: { opacity: 0, x: 100 },
     };
 
-    const Front = ["ReactTS", "React-Form-Hook", "Framer-motion", "Sass", "Redux/Toolkit", "Axios", "React-icons", "UUID"];
+    const Front = ["ReactTS", "React-Form-Hook", "Framer-motion", "Sass", "Redux/Toolkit", "Axios", "React-icons"];
     const Back = ["Spring Boot", "Hibernate", "Spring Data JPA", "Spring Security", "Spring WebSocket", "MongoDB"];
 
     return (
         <div className="about-main-container">
             <div className="sub-container">
-                <motion.div className="leftside-container-about" variants={horizontal}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            transition={{duration: 1.5, delay: 0.5, type: "spring"}}
-                >
-                    <h1 className="about-name">
+                <AnimatedDiv className="leftside-container-about" variant={horizontal} transition={{duration: 1.5, delay: 0.5, type: "spring"}}>
+                    <Typography sx={{
+                        fontSize: isSmallScreen ? "2rem" : "4rem",
+                        fontWeight: "bold"
+                    }} className="about-name">
                         Back-end
-                    </h1>
-                    <p className="about-text">
+                    </Typography>
+                    <p className="tech-text">
                         <motion.ul
                             exit={{opacity: 0}}
                             transition={{duration: 1}}
@@ -47,17 +52,15 @@ const UsedTech = () => {
                             ))}
                         </motion.ul>
                     </p>
-                </motion.div>
-                <motion.div className="rightside-container-about" variants={horizontalInvert}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            transition={{duration: 1.5, delay: 0.5, type: "spring"}}
-                >
-                    <h1 className="about-name">
+                </AnimatedDiv>
+                <AnimatedDiv className="rightside-container-about" variant={horizontalInvert} transition={{duration: 1.5, delay: 0.5, type: "spring"}}>
+                    <Typography sx={{
+                        fontSize: isSmallScreen ? "2rem" : "4rem",
+                        fontWeight: "bold"
+                    }} className="about-name">
                         Front-end
-                    </h1>
-                    <p className="about-text">
+                    </Typography>
+                    <p className="tech-text">
                         <motion.ul
                             exit={{opacity: 0}}
                             transition={{duration: 1}}
@@ -74,7 +77,7 @@ const UsedTech = () => {
                             ))}
                         </motion.ul>
                     </p>
-                </motion.div>
+                </AnimatedDiv>
             </div>
         </div>
     );

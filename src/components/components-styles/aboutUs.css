@@ -3,6 +3,13 @@
     margin: 0 auto;
 }
 
+.sub-container-about-us {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: calc(100vh - 52px);
+}
+
 .leftside-container-about, .rightside-container-about {
     display: flex;
     flex-direction: column;
@@ -29,7 +36,7 @@
 
 .contact {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-size: 1.5rem;
 }
 
@@ -57,7 +64,7 @@
 .logo-container {
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 
 .logo-container-v {
@@ -93,4 +100,53 @@
 
 .user-logo-d {
     filter: invert(100%);
+}
+
+.contact-vert {
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1280px) {
+    .leftside-container-about, .rightside-container-about {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        margin: 30px 0;
+        justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: lighter;
+    }
+    .sub-container-about-us {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: calc(100vh - 52px);
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .user-logo, .user-logo-d {
+        height: 25rem;
+        width: 25rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .user-logo, .user-logo-d {
+        height: 20rem;
+        width: 20rem;
+    }
+    .about-text {
+        display: flex;
+        justify-content: space-around;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: lighter;
+        color: whitesmoke;
+        font-size: 1rem;
+    }
 }

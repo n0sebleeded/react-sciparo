@@ -1,11 +1,26 @@
 .outlet-container {
-    height: 95vh;
+    calc(100vh - 52px);
     margin: 0 auto;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
+}
+
+.nav-proj-name {
+    display: flex;
+}
+
+@media only screen and (max-width: 720px)  {
+    .outlet-container {
+        height: auto;
+        margin: 0 auto;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
 }
 
 .navbar {
+    position: relative;
+    z-index: 10000;
     display: flex;
     color: honeydew;
     flex-direction: row;
@@ -14,7 +29,7 @@
     font-weight: bold;
     align-items: center;
     background-color: #1a1a1a;
-    height: 5vh;
+    height: 52px;
 }
 
 .navbar-item-set {

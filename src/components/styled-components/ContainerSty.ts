@@ -1,7 +1,7 @@
 import {Container, styled} from "@mui/material";
 
 const ContainerSty = styled(Container)(() => ({
-    overflow: 'hidden',
+    overflowX: 'auto',
     display: 'flex',
     justifyContent: 'center',
 

@@ -20,3 +20,9 @@ export interface IRootStateLogin {
         login: boolean
     }
 }
+
+export interface IRootStateBurger {
+    burger: {
+        isOpen: boolean
+    }
+}

@@ -2,12 +2,12 @@ import './App.css'
 import {BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
 import CardList from "./components/game-components/CardList.tsx";
 import ErrorPage from "./components/pages/ErrorPage.tsx";
-import MainPage from "./components/pages/MainPage.tsx";
+import MainPage from "./components/pages/main-page/MainPage.tsx";
 import RootLayout from "./components/RootLayout.tsx";
 import {AnimatePresence} from "framer-motion";
 import Navbar from "./components/Navbar.tsx";
 import Idea from "./components/pages/Idea.tsx";
-import AboutUs from "./components/pages/AboutUs.tsx";
+import AboutUs from "./components/pages/about-us/AboutUs.tsx";
 import UsedTech from "./components/pages/UsedTech.tsx";
 import Layout from "./components/pages/auth/Layout.tsx";
 import LobbyList from "./components/game-components/LobbyList.tsx";

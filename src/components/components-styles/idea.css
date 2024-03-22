@@ -4,6 +4,7 @@
     font-size: 24pt;
     font-weight: lighter;
     z-index: 5;
+    position: relative;
 }
 
 .idea-container {
@@ -23,11 +24,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 95vh;
+    height: calc(100vh - 52px);
 }
 
 .idea-img-container {
-    height: 95vh;
+    height: calc(100vh - 52px);
     display: flex;
     flex-direction: row;
     max-width: 40vw;
@@ -40,4 +41,10 @@
     max-width: 40vw;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    .kaiji-img {
+        display: none;
+    }
 }
