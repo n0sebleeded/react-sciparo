@@ -7,7 +7,7 @@
     width: 100vw;
     overflow: hidden;
     background-color: #1A1A1A;
-    z-index: 100;
+    z-index: 1000;
     font-family: 'Montserrat', sans-serif;
     font-size: 30pt;
 }

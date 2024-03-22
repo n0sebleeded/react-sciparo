@@ -58,11 +58,11 @@ const Navbar:React.FC = () => {
                 </NavbarContainer>
                 <NavbarBurger>
                     <Button onClick={onClick} sx={{scale: "2"}}>≡</Button>
-                    <div className="nav-proj-name">
+                    <Link to="/" className="nav-proj-name">
                         <Typography sx={{color: '#FFEA00', fontWeight: 'bold'}}>Sci</Typography>
                         <Typography sx={{color: '#888000', fontWeight: 'bold'}}>pa</Typography>
                         <Typography sx={{color: '#545000', fontWeight: 'bold'}}>ro</Typography>
-                    </div>
+                    </Link>
                 </NavbarBurger>
             </AnimatedDiv>
         </>

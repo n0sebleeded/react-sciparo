@@ -20,3 +20,15 @@ export const leftout = {
     animate: {x: 0, opacity: 1},
     exit: {x: -375, opacity: 1}
 }
+
+export const topout = {
+    initial: {y: 0, opacity: 0},
+    animate: {y: 0, opacity: 1},
+    exit: {y: 375, opacity: 1}
+}
+
+export const bottomout = {
+    initial: {y: 0, opacity: 0},
+    animate: {y: 0, opacity: 1},
+    exit: {y: -375, opacity: 1}
+}

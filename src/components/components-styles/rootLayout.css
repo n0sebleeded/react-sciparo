@@ -19,6 +19,8 @@
 }
 
 .navbar {
+    position: relative;
+    z-index: 10000;
     display: flex;
     color: honeydew;
     flex-direction: row;

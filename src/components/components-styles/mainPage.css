@@ -87,7 +87,7 @@
         justify-content: flex-start;
         align-items: center;
     }
-    @media screen and (min-height: 732px) {
+    @media screen and (min-height: 900px) {
         .sub-container {
             display: flex;
             flex-direction: column;
@@ -108,7 +108,7 @@
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
     .leftside-container {
         display: flex;
         flex-direction: row;
@@ -129,7 +129,7 @@
         font-weight: bold;
     }
     .main-img {
-        margin: 3rem 0;
+        margin: 2rem 0;
         height: 7em;
     }
     .sub-text {
@@ -140,7 +140,6 @@
         font-weight: lighter;
         line-height: 2rem;
         text-align: left;
-        padding-bottom: 30px;
     }
     .temp {
         display: none;
