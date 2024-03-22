@@ -16,14 +16,12 @@ const RootLayout:React.FC = () => {
         exit: { x: 400 } ,
     };
 
-
     //FIXME: BLOCK OVERFLOW WHEN ANIMATING;
-    //TODO: REDESIGN MOBILE ADAP;
     return (
         <>
             <AnimatePresence mode="wait">
                 {isOpen &&
-                    <AnimatedDiv className="burger-open-container" variant={vertical} transition={{duration: 1, ease: "anticipate", delay: 0}}>
+                    <AnimatedDiv className="burger-open-container" variant={vertical} transition={{duration: 0.5, easy: "spring", delay: 0}}>
                         <OpenBurger />
                     </AnimatedDiv>
                 }

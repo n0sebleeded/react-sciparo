@@ -1,6 +1,7 @@
 import '../components-styles/idea.css'
 import {motion} from "framer-motion";
 
+//TODO: mobile redesign adaptive
 const Idea = () => {
     const text = "The idea of creating rock paper scissors as a card game didn't come out of nowhere. This idea was seen in the anime \"Kaiji\". It contains a wide variety of games, both gambling and intellectual, and we took one of them as a basis, simplifying it to a certain level🤓"
         .split(" ");
