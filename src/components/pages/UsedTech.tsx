@@ -4,6 +4,8 @@ import '../components-styles/usedTech.css'
 import {Typography, useMediaQuery, useTheme} from "@mui/material";
 import AnimatedDiv from "../AnimatedDiv.tsx";
 
+//TODO: DECOMPOSE
+
 const UsedTech = () => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -20,7 +22,7 @@ const UsedTech = () => {
         exit: { opacity: 0, x: 100 },
     };
 
-    const Front = ["ReactTS", "React-Form-Hook", "Framer-motion", "Sass", "Redux/Toolkit", "Axios", "React-icons", "UUID"];
+    const Front = ["ReactTS", "React-Form-Hook", "Framer-motion", "Sass", "Redux/Toolkit", "Axios", "React-icons"];
     const Back = ["Spring Boot", "Hibernate", "Spring Data JPA", "Spring Security", "Spring WebSocket", "MongoDB"];
 
     return (

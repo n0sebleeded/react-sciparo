@@ -5,6 +5,10 @@
     overflow-y: auto;
 }
 
+.nav-proj-name {
+    display: flex;
+}
+
 @media only screen and (max-width: 720px)  {
     .outlet-container {
         height: auto;

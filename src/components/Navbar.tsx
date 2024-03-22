@@ -4,7 +4,7 @@ import './components-styles/rootLayout.css'
 import NavbarContainer from "./styled-components/NavbarContainer.ts";
 import NavbarBurger from "./styled-components/NavbarBurger.ts";
 import AnimatedDiv from "./AnimatedDiv.tsx";
-import { Button } from "@mui/material";
+import {Button, Typography} from "@mui/material";
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setBurger} from "../redux/reducers/burgerSlice.ts";
@@ -58,6 +58,11 @@ const Navbar:React.FC = () => {
                 </NavbarContainer>
                 <NavbarBurger>
                     <Button onClick={onClick} sx={{scale: "2"}}>≡</Button>
+                    <div className="nav-proj-name">
+                        <Typography sx={{color: '#FFEA00', fontWeight: 'bold'}}>Sci</Typography>
+                        <Typography sx={{color: '#888000', fontWeight: 'bold'}}>pa</Typography>
+                        <Typography sx={{color: '#545000', fontWeight: 'bold'}}>ro</Typography>
+                    </div>
                 </NavbarBurger>
             </AnimatedDiv>
         </>

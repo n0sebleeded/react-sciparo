@@ -3,7 +3,8 @@ import {Container, styled} from "@mui/material";
 const NavbarBurger = styled(Container)(() => ({
     overflow: 'hidden',
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     fontSize: "2rem",
     zIndex: "110",
 
