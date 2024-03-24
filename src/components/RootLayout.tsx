@@ -16,7 +16,7 @@ const RootLayout:React.FC = () => {
         exit: { x: 400 } ,
     };
 
-    //FIXME: BLOCK OVERFLOW WHEN ANIMATING;
+    //TODO: BLOCK OVERFLOW WHEN ANIMATING;
     return (
         <>
             <AnimatePresence mode="wait">
