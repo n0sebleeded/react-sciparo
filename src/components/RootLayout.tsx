@@ -17,6 +17,7 @@ const RootLayout:React.FC = () => {
     };
 
     //TODO: BLOCK OVERFLOW WHEN ANIMATING;
+    //TODO: Block overflow while animating framer-motion.
     return (
         <>
             <AnimatePresence mode="wait">
