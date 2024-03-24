@@ -4,10 +4,9 @@
 }
 
 .under-container {
-    height: 90vh;
+    height: calc(100vh - 52px);
     display: flex;
     flex-direction: column;
-    padding: 30px 0;
     justify-content: space-around;
     align-items: center;
 }
