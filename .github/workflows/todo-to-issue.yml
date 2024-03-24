@@ -11,4 +11,4 @@ jobs:
         uses: alstr/todo-to-issue-action@v4
         with:
           PROJECTS_SECRET: ${{ secrets.PROJECTS_SECRET }}
-
+          LANGUAGES: "language.json"
