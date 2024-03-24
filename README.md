@@ -1,3 +1,35 @@
+## Technologies Stack:
+- React(including React-Hook-Form)
+- Vite
+- Typscript
+- Redux/Toolkit
+- Framer-motion
+- Sass
+- Axios
+- Material-UI
+
+## Back-end app.
+[Link to the back-end app](https://github.com/sabexzero/Sciparo)
+
+## Get started
+```bash
+git clone https://github.com/n0sebleeded/react-rockpaperscissors
+cd react-rockpaperscissors
+npm install
+```
+To start the project type 
+```bash
+npm run dev
+```
+or 
+```bash
+npm run build
+```
+or
+```bash
+npm run preview
+```
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -69,33 +101,4 @@ export default defineConfig({
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
-```
-## Used stack:
-- React
-- React-Hook-Form
-- Vite
-- Typscript
-- Redux
-- Framer-motion
-- Sass preprocessor
-- Axios
-- @mui/icons-material
-
-## Get started
-```bash
-git clone https://github.com/n0sebleeded/react-rockpaperscissors
-cd react-rockpaperscissors
-npm install
-```
-To start the project type 
-```bash
-npm run dev
-```
-or 
-```bash
-npm run build
-```
-or
-```bash
-npm run preview
 ```
