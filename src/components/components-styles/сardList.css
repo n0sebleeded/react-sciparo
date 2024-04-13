@@ -2,16 +2,21 @@
     position: relative;
     display: flex;
     width: 100vw;
-    height: 30vh;
+    height: 20vh;
     justify-content: center;
     align-items: center;
 }
 
 .all_cards_container {
     display: flex;
+    margin-top: 20px;
     flex-direction: column;
-    height: 95vh;
+    height: calc(95vh - 52px);
     justify-content: space-between;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+@media only screen and (max-width: 966px) {
+
 }

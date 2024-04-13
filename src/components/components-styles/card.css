@@ -15,6 +15,34 @@
     user-select: none;
 }
 
+.card:nth-child(1) {
+    rotate: -12.5deg;
+}
+
+.card:nth-child(2) {
+    rotate: -6.25deg;
+    margin-bottom: 75px;
+}
+
+.card:nth-child(3) {
+    rotate: -3deg;
+    margin-bottom: 100px;
+}
+
+.card:nth-child(4) {
+    rotate: 3deg;
+    margin-bottom: 100px;
+}
+
+.card:nth-child(5) {
+    rotate: 6.25deg;
+    margin-bottom: 75px;
+}
+
+.card:nth-child(6) {
+    rotate: 12.5deg;
+}
+
 .pic {
     width: 8em;
     pointer-events: none;
@@ -54,6 +82,31 @@
 
 .card_item {
     display: flex;
+    cursor: pointer;
     flex-direction: column;
     justify-content: center;
+}
+
+@media only screen and (max-width: 966px) {
+    .card {
+        margin: 3px;
+        height: 8em;
+        width: 5em;
+        display: flex;
+        background-color: #FFEA00;
+        transition: transform 0.3s ease;
+        border-radius: 20px;
+        border: #ffd500 inset 4px;
+        transform: scale(0);
+        -moz-user-select: -moz-none;
+        -o-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .pic {
+        width: 5em;
+        pointer-events: none;
+    }
 }
