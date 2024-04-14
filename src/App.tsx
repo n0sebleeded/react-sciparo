@@ -10,7 +10,7 @@ import Idea from "./components/pages/Idea.tsx";
 import AboutUs from "./components/pages/about-us/AboutUs.tsx";
 import UsedTech from "./components/pages/UsedTech.tsx";
 import Layout from "./components/pages/auth/Layout.tsx";
-import LobbyList from "./components/game-components/LobbyList.tsx";
+import LobbyList from "./components/game-components/lobby/LobbyList.tsx";
 
 
 function App() {

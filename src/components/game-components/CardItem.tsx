@@ -11,6 +11,11 @@ import {IRootStateCard} from "../../redux/actionTypes.ts";
 window.global ||= window;
 
 const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type, stompClient }) => {
+    const selectedCard = useSelector((state: IRootStateCard) => state.selectedCard.selectedCard);
+    const hoveredCard = useSelector((state: IRootStateCard) => state.selectedCard.hoveredCard);
+    const ref = useRef<HTMLDivElement | null>(null);
+    const isClicked = selectedCard === id;
+
     const [cardState, setCardState] = useState({
         isAnimating: false,
         cardCords: { x: 0, y: 0 },
@@ -32,12 +37,9 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type, stompClient }) => {
     const renderCardImage = (type: ICardType): React.ReactNode => (
         <img className="pic"
              src={`../../src/assets/${type.toLowerCase()}.svg`}
+             /*src={`../../src/assets/no_connection.png`}*/
              alt={type.toLowerCase()} />
     );
-    const selectedCard = useSelector((state: IRootStateCard) => state.selectedCard.selectedCard);
-    const hoveredCard = useSelector((state: IRootStateCard) => state.selectedCard.hoveredCard);
-
-    const isClicked = selectedCard === id;
 
     const handleClick = () => {
         if (selectedCard === null) {
@@ -51,8 +53,7 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type, stompClient }) => {
         }
     };
 
-    const ref = useRef<HTMLDivElement | null>(null);
-
+    //TODO: Надо что-то сделать с этим ужасом
     useEffect(() => {
         setCardState(prevState => ({ ...prevState, cardCords: getCardCords(ref.current) }));
     }, [ref]);

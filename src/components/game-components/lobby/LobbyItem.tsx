@@ -1,4 +1,4 @@
-import {ILobbyProps} from "../../specs/interfaces.tsx";
+import {ILobbyProps} from "../../../specs/interfaces.tsx";
 import React from "react";
 import {Button, TableBody, TableCell, TableRow} from "@mui/material";
 

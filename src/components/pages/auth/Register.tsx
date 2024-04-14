@@ -1,5 +1,5 @@
 import React, {} from 'react';
-import '../../components-styles/login-register.css'
+import '../../components-styles/loginRegister.css'
 import '../../components-styles/btn.css'
 import {INotificationProp} from "../../../specs/interfaces.tsx";
 import GifContainer from "./GifContainer.tsx";
