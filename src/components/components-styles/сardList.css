@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+.card_container:nth-child(1) {
+    rotate: 180deg;
+}
+
 .all_cards_container {
     display: flex;
     margin-top: 20px;

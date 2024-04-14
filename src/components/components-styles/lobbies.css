@@ -1,0 +1,27 @@
+.lobbies-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    height: 100%;
+    width: 100%;
+}
+
+.lobbies-text {
+    position: relative;
+    bottom: 12%;
+    color: white;
+    line-height: 1.5rem;
+    font-family: "Essays 1743", "Linux Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+    font-size: 16pt;
+}
+
+.lobbies-pic {
+    height: 16rem;
+    position: relative;
+    top: 12%;
+    filter: contrast(0);
+}

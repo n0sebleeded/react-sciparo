@@ -37,6 +37,7 @@ const CardItem: React.FC<ICard> = ({ id, Text, Hidden, Type, stompClient }) => {
     const renderCardImage = (type: ICardType): React.ReactNode => (
         <img className="pic"
              src={`../../src/assets/${type.toLowerCase()}.svg`}
+             /*src={`../../src/assets/no_connection.png`}*/
              alt={type.toLowerCase()} />
     );
 

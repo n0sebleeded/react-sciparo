@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import '../../components-styles/login-register.css'
+import '../../components-styles/loginRegister.css'
 import '../../components-styles/btn.css'
 import GifContainer from "./GifContainer.tsx";
 import Greeting from "./Greeting.tsx";

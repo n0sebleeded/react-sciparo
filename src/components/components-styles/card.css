@@ -16,7 +16,8 @@
 }
 
 .card:nth-child(1) {
-    rotate: -12.5deg;
+    rotate: -10deg;
+    margin-bottom: 25px;
 }
 
 .card:nth-child(2) {
@@ -25,12 +26,12 @@
 }
 
 .card:nth-child(3) {
-    rotate: -3deg;
+    rotate: -2deg;
     margin-bottom: 100px;
 }
 
 .card:nth-child(4) {
-    rotate: 3deg;
+    rotate: 2deg;
     margin-bottom: 100px;
 }
 
@@ -40,7 +41,8 @@
 }
 
 .card:nth-child(6) {
-    rotate: 12.5deg;
+    rotate: 10deg;
+    margin-bottom: 25px;
 }
 
 .pic {
